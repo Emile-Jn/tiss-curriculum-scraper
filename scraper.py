@@ -47,11 +47,18 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
 # then add chromedriver to path
 
 chrome_options = webdriver.ChromeOptions()
-# Add your options as needed
 options = [
     "--window-size=1200,1200",
     "--ignore-certificate-errors",
+    "--headless",
+    "--disable-gpu",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
 ]
+for option in options:
+    chrome_options.add_argument(option)
+
 
 driver = webdriver.Chrome(options=chrome_options)
 
