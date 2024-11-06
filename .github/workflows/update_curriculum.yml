@@ -3,6 +3,7 @@ name: Update curriculum.tsv
 on:
   schedule: # Runs at 00:00 UTC every day
     - cron: "0 0 * * *"
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   build:
