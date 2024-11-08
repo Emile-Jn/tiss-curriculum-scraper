@@ -4,4 +4,4 @@ of the Data Science master's curriculum and extract a table in which each row is
 
 To obtain a fresh version of `curriculum.tsv`, simply run `scraper.py`.
 
-Thanks to @dblasko for setting up Github Actions in `.github/workflows` so that the curriculum is updated every day at midnight and can be manually updated with one click.
+Thanks to [Daniel](https://github.com/dblasko) for setting up Github Actions in `.github/workflows` so that the curriculum is updated every day at midnight and can be manually updated with one click.
