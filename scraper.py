@@ -36,6 +36,7 @@ THESIS_MODULE = pd.DataFrame(
      'semester': ['W and S', 'W and S', 'W and S'],  # Winter and Summer
      'credits': [27, 1.5, 1.5]})
 
+"""
 # Variables
 curriculum = pd.DataFrame(
     columns=[
@@ -150,15 +151,37 @@ for i in range(len(semester_select.options)):
             # print(f'\r Processed {n_courses} courses.', end='')
 
     print("Finished.")
+"""
+
+def initiate_chrome_driver() -> webdriver.Chrome:
+    chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+    # and if it doesn't exist, download it automatically,
+    # then add chromedriver to path
+
+    chrome_options = webdriver.ChromeOptions()
+    options = [
+        "--window-size=1200,1200",
+        "--ignore-certificate-errors",
+        "--headless",
+        "--disable-gpu",
+        "--disable-extensions",
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+    ]
+    for option in options:
+        chrome_options.add_argument(option)
+
+    driver = webdriver.Chrome(options=chrome_options)
+    return driver
 
 
-def scrape_curriculum_page(URL, section_names: dict=None) -> pd.DataFrame:
+def scrape_curriculum_page(URL, driver: webdriver.Chrome, section_names: dict=None) -> pd.DataFrame:
     columns = ['title', 'code', 'type', 'semester', 'credits', 'link']
     if section_names is not None:  # if using section names to extract modules
         columns.insert(0, 'module')
         columns.append('full_module_name')
     curriculum = pd.DataFrame(columns=columns)
-    driver = webdriver.Chrome()
+
     driver.get(URL)
     time.sleep(3)  # wait 3 seconds to let the page load
     # driver.implicitly_wait(0.5)  # not needed?
@@ -274,14 +297,14 @@ def get_course(cells) -> pd.DataFrame:
     # curriculum = pd.concat([curriculum, new_row], ignore_index=True)
     # print(f'\r Processed {n_courses+1} courses.', end='')
 
-def get_data_science_curriculum():
+def get_data_science_curriculum(driver):
     URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=7871&dsrid=370&key=67853"
-    curriculum = scrape_curriculum_page(URL, SECTION_NAMES)
+    curriculum = scrape_curriculum_page(URL, driver, SECTION_NAMES)
     return pd.concat([curriculum, THESIS_MODULE], ignore_index=True)
 
-def get_tsk_courses():
+def get_tsk_courses(driver):
     URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=2955&dsrid=810&date=20241001&key=57214"
-    tsk_courses = scrape_curriculum_page(URL)
+    tsk_courses = scrape_curriculum_page(URL, driver)
     tsk_courses['module'] = 'TSK'
     tsk_courses['full_module_name'] = 'Modul Freie Wahlfächer und Transferable Skills'
     return tsk_courses
@@ -296,8 +319,10 @@ def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
 
 def extract_and_save_all_courses():
     previous_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
-    curriculum = get_data_science_curriculum()
-    tsk_courses = get_tsk_courses()
+    driver = initiate_chrome_driver()
+    curriculum = get_data_science_curriculum(driver)
+    tsk_courses = get_tsk_courses(driver)
+    driver.quit()
     all_courses = pd.concat([curriculum, tsk_courses], ignore_index=True)
     all_courses = clean_curriculum(all_courses)
     new_changes = all_courses[~all_courses['code'].isin(previous_curriculum['code'])]
@@ -311,4 +336,4 @@ if __name__ == '__main__':
     #%%
     old_curriculum = pd.read_csv('curriculum_1.tsv', sep='\t')
     new_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
-    new_courses = compare_df(new_curriculum, old_curriculum)
+    # new_courses = compare_df(new_curriculum, old_curriculum)

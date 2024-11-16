@@ -66,6 +66,10 @@ def compare_df(new_df: pd.DataFrame, old_df: pd.DataFrame) -> pd.DataFrame:
         new_df = new_df.drop(columns='link', errors='ignore')
         old_df = old_df.drop(columns='link', errors='ignore')
     # Find the rows in df1 that are not in df2
+    # TODO: change to this
+    # new_df['key'] = new_df.apply(tuple, axis=1)
+    # old_df['key'] = old_df.apply(tuple, axis=1)
+    # result = df1[~df1['key'].isin(df2['key'])].drop(columns=['key'])
     new_rows = new_df.merge(old_df, on=list(new_df.columns), indicator=True, how='left')
     return new_rows[new_rows['_merge'] == 'left_only']
 
