@@ -9,6 +9,9 @@ import time
 import pandas as pd
 from tqdm import tqdm
 
+# Custom module
+from table_formatting import *
+
 # Constants
 SECTION_NAMES = {
     'Prüfungsfach Data Science - Foundations': 'Foundations',
@@ -23,8 +26,18 @@ SECTION_NAMES = {
     'Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension': 'VAST/EX',
     'Prüfungsfach Freie Wahlfächer und Transferable Skills': 'Free Electives'
 }
-SECTION_NAMES_LIST = list(SECTION_NAMES.keys())
+# SECTION_NAMES_LIST = list(SECTION_NAMES.keys())
+THESIS_MODULE = pd.DataFrame(
+    {'module': ['Thesis', 'Thesis', 'Thesis'],
+     'title': ['Master Thesis', 'Seminar for Master students in Data Science', 'Defense of Master Thesis'],
+     'code': ['1', '180.722', '2'],  # arbitrary codes 1 and 2 for thesis and defense
+     'type': ['', 'SE', ''],
+     'semester': ['W and S', 'W and S', 'W and S'],  # Winter and Summer
+     'credits': [27, 1.5, 1.5]})
 
+#%%
+
+"""
 # Variables
 curriculum = pd.DataFrame(columns=['module', 'title', 'code', 'type', 'semester', 'credits', 'full_module_name'])
 
@@ -50,7 +63,7 @@ for i in range(len(semester_select.options)):
     # Get the updated option reference
     semester = semester_select.options[i]
     # Select each semester by visible text
-    semester_select.select_by_visible_text(semester.text)  # TODO: error for switching semester
+    semester_select.select_by_visible_text(semester.text)
     print(f'\n Processing the semester {semester.text} \n Waiting 3 seconds to load the page...')
     time.sleep(3)  # wait 3 seconds to let the page load
     table = driver.find_element(By.ID, "j_id_2i:nodeTable_data")
@@ -63,7 +76,7 @@ for i in range(len(semester_select.options)):
         # n_courses = parse_row(rows, j)
         if section_number == -1 and  j > 3:
             raise ValueError("Could not find the first section of the curriculum in the first 3 rows.")
-        # for each rows, get the 4 grid cells
+        # for each row, get the 4 grid cells
         cells = rows[j].find_elements(By.TAG_NAME, "td")
         # if the row is a new section of the curriculum, move to that section
         text = cells[0].text.strip()
@@ -100,6 +113,86 @@ for i in range(len(semester_select.options)):
             # print(f'\r Processed {n_courses} courses.', end='')
 
     print('Finished.')
+"""
+
+def scrape_curriculum_page(URL, section_names: dict=None) -> pd.DataFrame:
+    columns = ['title', 'code', 'type', 'semester', 'credits', 'link']
+    if section_names is not None:  # if using section names to extract modules
+        columns.insert(0, 'module')
+        columns.append('full_module_name')
+    curriculum = pd.DataFrame(columns=columns)
+    driver = webdriver.Chrome()
+    driver.get(URL)
+    time.sleep(3)  # wait 3 seconds to let the page load
+    # driver.implicitly_wait(0.5)  # not needed?
+    # Language of the page is German by default, switch it to English
+    driver.find_element("id", "language_en").click()
+    # Wait for the page to reload
+    time.sleep(3)  # Adjust the sleep time if necessary
+    # Locate the semester select element
+    semester_select = Select(driver.find_element('name', 'j_id_2i:semesterSelect'))
+    # For each semester, select it and scrape the courses:
+    for i in range(len(semester_select.options)):
+        # Re-locate the semester select element
+        semester_select = Select(driver.find_element('name', 'j_id_2i:semesterSelect'))
+        # Get the updated option reference
+        semester = semester_select.options[i]
+        # Select each semester by visible text
+        semester_select.select_by_visible_text(semester.text)
+        print(f'\n Processing the semester {semester.text} \n Waiting 3 seconds to load the page...')
+        time.sleep(3)  # wait 3 seconds to let the page load
+        table = driver.find_element(By.ID, "j_id_2i:nodeTable_data")
+        rows = table.find_elements(By.TAG_NAME, "tr")
+        curriculum = scrape_rows(rows, curriculum, section_names)
+        print('Finished scraping all courses available in the semester.')
+    driver.quit()  # close the browser
+    return curriculum
+
+
+def scrape_rows(rows, curriculum: pd.DataFrame, section_names: dict=None) -> pd.DataFrame:
+    """
+    Add the valid courses found in rows to the curriculum dataframe.
+    :param rows: a html element containing the rows of the curriculum table
+    :param curriculum: a pandas dataframe in which each row is a course
+    :param section_names: the names of the sections in the curriculum, which are modules
+    :return: the curriculum dataframe with the new courses added
+    """
+    n_courses = 0
+    if section_names is not None:
+        section_names_list = list(section_names.keys())
+        section_number = -1 # start with no section
+
+    # For each row in the table, scrape the course information
+    for j in tqdm(range(1, len(rows))):  # skip row 0 which just says "Master Data Science"
+        if section_names is not None:  # if using section names to extract modules
+            if section_number == -1 and  j > 3:
+                raise ValueError("Could not find the first section of the curriculum in the first 3 rows.")
+        # for each row, get the 4 grid cells
+        cells = rows[j].find_elements(By.TAG_NAME, "td")
+        # if the row is a new section of the curriculum, move to that section
+        text = cells[0].text.strip()
+        # print(f'matching {text} with {section_names_list[section_number+1]}')
+        if section_names is not None:  # if using section names to extract modules
+            if text == section_names_list[section_number + 1]:
+                section_number += 1
+                if section_number > len(SECTION_NAMES) - 2:
+                    break
+                continue
+        # Check if the row contains a hyperlink
+        hyperlinks = rows[j].find_elements(By.TAG_NAME, "a")
+        if hyperlinks:  #if there is at least one hyperlink in the row
+            first_link = hyperlinks[0].get_attribute('href')
+            print(f'\r type(first_link): {type(first_link)}', end='')
+            if 'tiss.tuwien.ac.at/course/courseDetails.xhtml' in first_link:  #if there is at least one tiss hyperlink in the row
+                new_row = get_course(cells)
+                new_row['link'] = first_link  # add the URL of the course
+                if section_names is not None:  # if using section names to extract modules
+                    new_row['module'] = section_names[section_names_list[section_number]]
+                    new_row['full_module_name'] = section_names_list[section_number]
+                curriculum = pd.concat([curriculum, new_row], ignore_index=True)
+                n_courses += 1
+    print(f'Found {n_courses} courses in the current semester.')
+    return curriculum
 
 def parse_row(rows, j, n_courses, section_number):
     if section_number == -1 and  j > 3:
@@ -117,46 +210,67 @@ def parse_row(rows, j, n_courses, section_number):
     # Check if the row contains a hyperlink
     hyperlinks = rows[j].find_elements(By.TAG_NAME, "a")
     if hyperlinks:  #if there is at least one hyperlink in the row
-        add_course(cells)
+        get_course(cells)
         return n_courses + 1
     # otherwise, no new course is added
     return n_courses
 
-def add_course(cells):
-    global curriculum
-    # get the course key
-    course_key = cells[0].find_element(By.CLASS_NAME, "courseKey").text.strip()
+def get_course(cells) -> pd.DataFrame:
+    # global curriculum
     # get the title of the course
     course_title = cells[0].find_element(By.CLASS_NAME, "courseTitle").text.strip()
+    # get the course key
+    course_key = cells[0].find_element(By.CLASS_NAME, "courseKey").text.strip()
     # split the course key into the course code, type, and semester
     course_info = course_key.split(" ")
     # get the number of ECTS credits from the last cell in the row
     ects = float(cells[3].text)
     # make a new course object
     new_row = pd.DataFrame(
-        {'module': [SECTION_NAMES[SECTION_NAMES_LIST[section_number]]],
-         'title': [course_title],
+        {'title': [course_title],
          'code': [course_info[0]],
          'type': [course_info[1]],
          'semester': [course_info[2]],
          'credits': [ects]})
-    curriculum = pd.concat([curriculum, new_row], ignore_index=True)
+    return new_row
+    # curriculum = pd.concat([curriculum, new_row], ignore_index=True)
     # print(f'\r Processed {n_courses+1} courses.', end='')
 
-#%% Manually add the thesis, seminar and defense, which don't appear as normal tiss courses
-thesis_module = pd.DataFrame(
-    {'module': ['Thesis', 'Thesis', 'Thesis'],
-     'title': ['Master Thesis', 'Seminar for Master students in Data Science', 'Defense of Master Thesis'],
-     'code': ['1', '180.722', '2'],  # arbitrary codes 1 and 2 for thesis and defense
-     'type': ['', 'SE', ''],
-     'semester': ['W and S', 'W and S', 'W and S'],  # Winter and Summer
-     'credits': [27, 1.5, 1.5]})
+def get_data_science_curriculum():
+    URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=7871&dsrid=370&key=67853"
+    curriculum = scrape_curriculum_page(URL, SECTION_NAMES)
+    return pd.concat([curriculum, THESIS_MODULE], ignore_index=True)
 
-curriculum = pd.concat([curriculum, thesis_module], ignore_index=True)
-curriculum = curriculum.dropna(how='all')  # drop rows with all NaN values
-curriculum.drop_duplicates(inplace=True)
+def get_tsk_courses():
+    URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=2955&dsrid=810&date=20241001&key=57214"
+    tsk_courses = scrape_curriculum_page(URL)
+    tsk_courses['module'] = 'TSK'
+    tsk_courses['full_module_name'] = 'Modul Freie Wahlfächer und Transferable Skills'
+    return tsk_courses
 
-#%% write the curriculum to a tsv file
-curriculum.to_csv('curriculum.tsv', sep='\t', index=False)
+def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
+    curriculum = merge_years(curriculum)
+    curriculum = remove_canceled_courses(curriculum)
+    # Remove duplicates, taking everything into account except the link
+    curriculum.drop_duplicates(subset=curriculum.columns.difference(['link']), inplace=True)
+    curriculum.dropna(how='all', inplace=True)
+    return curriculum
 
-driver.quit()  # close the browser
+def extract_and_save_all_courses():
+    previous_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
+    curriculum = get_data_science_curriculum()
+    tsk_courses = get_tsk_courses()
+    all_courses = pd.concat([curriculum, tsk_courses], ignore_index=True)
+    all_courses = clean_curriculum(all_courses)
+    new_changes = all_courses[~all_courses['code'].isin(previous_curriculum['code'])]
+    all_courses.to_csv('curriculum.tsv', sep='\t', index=False)
+    return all_courses
+
+if __name__ == '__main__':
+    all_courses = extract_and_save_all_courses()
+    print('All courses extracted and saved to curriculum.tsv.')
+
+    #%%
+    old_curriculum = pd.read_csv('curriculum_1.tsv', sep='\t')
+    new_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
+    new_courses = compare_df(new_curriculum, old_curriculum)
