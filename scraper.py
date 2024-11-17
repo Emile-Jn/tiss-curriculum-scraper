@@ -36,6 +36,7 @@ THESIS_MODULE = pd.DataFrame(
      'semester': ['W and S', 'W and S', 'W and S'],  # Winter and Summer
      'credits': [27, 1.5, 1.5]})
 
+#%%
 """
 # Variables
 curriculum = pd.DataFrame(
@@ -182,7 +183,13 @@ def scrape_curriculum_page(URL, driver: webdriver.Chrome, section_names: dict=No
         columns.append('full_module_name')
     curriculum = pd.DataFrame(columns=columns)
 
-    driver.get(URL)
+    try:
+        driver.get(URL)
+    except Exception as e:
+        print("Driver failed, restarting WebDriver:", e)
+        driver.quit()
+        driver = initiate_chrome_driver()  # Restart the WebDriver
+        driver.get(URL)
     time.sleep(3)  # wait 3 seconds to let the page load
     # driver.implicitly_wait(0.5)  # not needed?
     # Language of the page is German by default, switch it to English
@@ -254,27 +261,6 @@ def scrape_rows(rows, curriculum: pd.DataFrame, section_names: dict=None) -> pd.
     print(f'Found {n_courses} courses in the current semester.')
     return curriculum
 
-def parse_row(rows, j, n_courses, section_number):
-    if section_number == -1 and  j > 3:
-        raise ValueError("Could not find the first section of the curriculum in the first 3 rows.")
-        # for each rows, get the 4 grid cells
-    cells = rows[j].find_elements(By.TAG_NAME, "td")
-    # if the row is a new section of the curriculum, move to that section
-    text = cells[0].text.strip()
-    # print(f'matching {text} with {section_names_list[section_number+1]}')
-    if text == SECTION_NAMES_LIST[section_number + 1]:
-        section_number += 1
-        if section_number > len(SECTION_NAMES) - 2:
-            return "stop"
-        # continue
-    # Check if the row contains a hyperlink
-    hyperlinks = rows[j].find_elements(By.TAG_NAME, "a")
-
-    if hyperlinks:  #if there is at least one hyperlink in the row
-        get_course(cells)
-        return n_courses + 1
-    # otherwise, no new course is added
-    return n_courses
 
 def get_course(cells) -> pd.DataFrame:
     # global curriculum
@@ -289,7 +275,7 @@ def get_course(cells) -> pd.DataFrame:
     # make a new course object
     new_row = pd.DataFrame(
         {'title': [course_title],
-         'code': [course_info[0]],
+         'code': [str(course_info[0])],
          'type': [course_info[1]],
          'semester': [course_info[2]],
          'credits': [ects]})
@@ -313,8 +299,15 @@ def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
     curriculum = merge_years(curriculum)
     curriculum = remove_canceled_courses(curriculum)
     # Remove duplicates, taking everything into account except the link
-    curriculum.drop_duplicates(subset=curriculum.columns.difference(['link']), inplace=True)
+    before_drop_duplicates = curriculum.shape[0]
+    curriculum.drop_duplicates(subset=curriculum.columns.difference(['link']),
+                               inplace=True,
+                               keep='last')  # keep the most recent available course
+    after_drop_duplicates = curriculum.shape[0]
+    print(f'Removed {before_drop_duplicates - after_drop_duplicates} duplicates.')
     curriculum.dropna(how='all', inplace=True)
+    after_drop_na = curriculum.shape[0]
+    print(f'Removed {after_drop_duplicates - after_drop_na} rows with all missing values.')
     return curriculum
 
 def extract_and_save_all_courses():
@@ -330,10 +323,12 @@ def extract_and_save_all_courses():
     return all_courses
 
 if __name__ == '__main__':
+    old_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
     all_courses = extract_and_save_all_courses()
     print('All courses extracted and saved to curriculum.tsv.')
 
     #%%
-    old_curriculum = pd.read_csv('curriculum_1.tsv', sep='\t')
     new_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
-    # new_courses = compare_df(new_curriculum, old_curriculum)
+    new_courses = compare_df(new_curriculum, old_curriculum)
+    print('Courses that have been added or changed since the last update:')
+    print(new_courses)

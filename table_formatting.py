@@ -3,6 +3,7 @@ date: 8/11/2024
 author: Emile Johnston
 """
 import pandas as pd
+from datetime import datetime
 
 def same_season(season_1: str, season_2: str) -> bool:
     if 'w' in season_1.lower() and 'w' in season_2.lower():
@@ -56,7 +57,9 @@ def merge_years(df: pd.DataFrame) -> pd.DataFrame:
 
 def remove_canceled_courses(df: pd.DataFrame) -> pd.DataFrame:
     """Remove courses with 'canceled' in the title"""
+    rows_before = df.shape[0]
     df = df[~df['title'].str.contains('canceled', case=False)]
+    print(f'Removed {rows_before - df.shape[0]} canceled courses.')
     return df
 
 def compare_df(new_df: pd.DataFrame, old_df: pd.DataFrame) -> pd.DataFrame:
@@ -66,13 +69,30 @@ def compare_df(new_df: pd.DataFrame, old_df: pd.DataFrame) -> pd.DataFrame:
         new_df = new_df.drop(columns='link', errors='ignore')
         old_df = old_df.drop(columns='link', errors='ignore')
     # Find the rows in df1 that are not in df2
-    # TODO: change to this
-    # new_df['key'] = new_df.apply(tuple, axis=1)
-    # old_df['key'] = old_df.apply(tuple, axis=1)
-    # result = df1[~df1['key'].isin(df2['key'])].drop(columns=['key'])
-    new_rows = new_df.merge(old_df, on=list(new_df.columns), indicator=True, how='left')
-    return new_rows[new_rows['_merge'] == 'left_only']
+    new_df['key'] = new_df.apply(tuple, axis=1)
+    old_df['key'] = old_df.apply(tuple, axis=1)
+    result = new_df[~new_df['key'].isin(old_df['key'])].drop(columns=['key'])
+    # new_rows = new_df.merge(old_df, on=list(new_df.columns), indicator=True, how='left')
+    # return new_rows[new_rows['_merge'] == 'left_only']
+    return result
 
+def make_url(course_code, semester, year=None) -> str:
+    code = course_code.replace('.', '')  # remove the dot in the course code
+    if len(code) != 6:  # course codes must be six digits
+        return ''
+    return f'https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr={code}&semester={year}{semester}'
+
+def get_current_course_year(semester: str) -> int:
+    """Get the current year of the course"""
+    now = datetime.now()
+    if 'w' in semester.lower():
+        if now.month < 10:  # if this year's winter semester has not started yet
+            return now.year - 1  # use last year's information
+        return now.year  # use the current information
+    if 's' in semester.lower():
+        if now.month < 3:  # if this year's summer semester has not started yet
+            return now.year - 1  # use last year's information
+        return now.year  # use the current information
 
 if __name__ == '__main__':  # clean up the existing tsv file
     curriculum = pd.read_csv('curriculum.tsv', sep='\t')
