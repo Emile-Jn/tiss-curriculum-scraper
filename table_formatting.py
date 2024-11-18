@@ -1,11 +1,19 @@
 """
 date: 8/11/2024
 author: Emile Johnston
+
+Some functions to clean up the raw output of the scraping functions in scraper.py.
 """
 import pandas as pd
 from datetime import datetime
 
 def same_season(season_1: str, season_2: str) -> bool:
+    """
+    Check if two strings refer to the same academic season
+    :param season_1: e.g. 'W' or 's' or '2024W'
+    :param season_2: same as season_1
+    :return: True if the two strings refer to the same season
+    """
     if 'w' in season_1.lower() and 'w' in season_2.lower():
         return True
     if 's' in season_1.lower() and 's' in season_2.lower():
@@ -18,29 +26,12 @@ def later_year(year_1: str, year_2: str) -> bool:
         return True
     return False
 
-def remove_year_duplicates():
-    curr = pd.read_csv('curriculum.tsv', sep='\t')
-
-    """
-    new_curr = pd.DataFrame(columns=curr.columns)  # Empty dataframe with the same columns
-    for i in range(len(curr)):
-        row = curr.iloc[i]  #  a course in the original curriculum
-        matches = new_curr[(new_curr['code'] == row['code'])]  # the same course
-        if len(matches) == 0:  # the course is not yet added
-            new_curr = pd.concat([new_curr, row.to_frame().T], ignore_index=True)
-        else:
-            for course in matches.iterrows():
-                if same_season(row['semester'], course['semester']):
-                    if later_year(row['semester'][-4:], match['semester'][-4:]):
-                    new_curr = new_curr.drop(new_curr[new_curr['code'] == row['code']].index)
-                    new_curr = pd.concat([new_curr, row.to_frame().T], ignore_index=True)
-                else:
-                    new_curr = pd.concat([new_curr, row.to_frame().T], ignore_index=True)
-
-        """
-
 def remove_year_info(sem: str) -> str:
-    """Remove the year information from the sem column"""
+    """
+    Remove the year information from the sem column
+    :param sem: e.g. '2024W' or 'S'
+    :return:
+    """
     if 'w' in sem.lower() and 's' in sem.lower():
         return 'W and S'
     if 'w' in sem.lower():
@@ -77,9 +68,17 @@ def compare_df(new_df: pd.DataFrame, old_df: pd.DataFrame) -> pd.DataFrame:
     return result
 
 def make_url(course_code, semester, year=None) -> str:
+    if not '.' in course_code:  # codes without a dot are artificially created
+        return ''
     code = course_code.replace('.', '')  # remove the dot in the course code
     if len(code) != 6:  # course codes must be six digits
         return ''
+    if not isinstance(year, int):
+        raise ValueError('Year must be an integer.')
+    if year < 2023:
+        raise ValueError('Year must be at least 2023.')
+    if year is None:
+        year = get_current_course_year(semester)
     return f'https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr={code}&semester={year}{semester}'
 
 def get_current_course_year(semester: str) -> int:
@@ -93,22 +92,3 @@ def get_current_course_year(semester: str) -> int:
         if now.month < 3:  # if this year's summer semester has not started yet
             return now.year - 1  # use last year's information
         return now.year  # use the current information
-
-if __name__ == '__main__':  # clean up the existing tsv file
-    curriculum = pd.read_csv('curriculum.tsv', sep='\t')
-    #%%
-    thesis_module = pd.DataFrame(
-        {'module': ['Thesis'] * 3,
-         'title': ['Master Thesis', 'Seminar for Master students in Data Science', 'Defense of Master Thesis'],
-         'code': ['1', '180.722', '2'],  # arbitrary codes 1 and 2 for thesis and defense
-         'type': ['N/A', 'SE', 'N/A'],
-         'semester': ['W and S'] * 3,  # Winter and Summer
-         'credits': [27, 1.5, 1.5],
-         'full_module_name': ['Diplomarbeit und kommissionelle Gesamtprüfung'] * 3})
-    curriculum = pd.concat([curriculum, thesis_module], ignore_index=True)
-    curriculum = merge_years(curriculum)
-    curriculum.drop_duplicates(inplace=True)
-    curriculum.dropna(how='all', inplace=True)
-    #%%
-    curriculum = remove_canceled_courses(curriculum)
-    curriculum.to_csv('curriculum.tsv', sep='\t', index=False)
