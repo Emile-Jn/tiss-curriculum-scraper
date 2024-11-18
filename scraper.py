@@ -132,7 +132,6 @@ def scrape_rows(rows, curriculum: pd.DataFrame, section_names: dict=None) -> pd.
         hyperlinks = rows[j].find_elements(By.TAG_NAME, "a")
         if hyperlinks:  #if there is at least one hyperlink in the row
             first_link = hyperlinks[0].get_attribute('href')
-            print(f'\r type(first_link): {type(first_link)}', end='')
             if 'tiss.tuwien.ac.at/course/courseDetails.xhtml' in first_link:  #if there is at least one tiss hyperlink in the row
                 new_row = get_course(cells)
                 new_row['link'] = first_link  # add the URL of the course
