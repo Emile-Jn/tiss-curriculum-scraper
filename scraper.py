@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.safari.service import Service as SafariService
 from selenium.webdriver.support.ui import Select
+from selenium.common.exceptions import NoSuchElementException
 import chromedriver_autoinstaller
 import time
 import pandas as pd
@@ -27,7 +28,6 @@ SECTION_NAMES = {
     "Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension": "VAST/EX",
     "Prüfungsfach Freie Wahlfächer und Transferable Skills": "Free Electives",
 }
-# SECTION_NAMES_LIST = list(SECTION_NAMES.keys())
 THESIS_MODULE = pd.DataFrame(
     {'module': ['Thesis', 'Thesis', 'Thesis'],
      'title': ['Master Thesis', 'Seminar for Master students in Data Science', 'Defense of Master Thesis'],
@@ -35,6 +35,7 @@ THESIS_MODULE = pd.DataFrame(
      'type': ['', 'SE', ''],
      'semester': ['W and S', 'W and S', 'W and S'],  # Winter and Summer
      'credits': [27, 1.5, 1.5]})
+# TODO: instead of adding it manually, scrape the thesis seminar in case its info changes in the future?
 
 #%% functions
 
@@ -77,7 +78,10 @@ def scrape_curriculum_page(URL, driver: webdriver.Chrome, section_names: dict=No
     time.sleep(3)  # wait 3 seconds to let the page load
     # driver.implicitly_wait(0.5)  # not needed?
     # Language of the page is German by default, switch it to English
-    driver.find_element("id", "language_en").click()
+    try:  # try to switch to English if the page is in German
+        driver.find_element("id", "language_en").click()
+    except NoSuchElementException:
+        pass  # leave the page in English if it's already in English
     # Wait for the page to reload
     time.sleep(3)  # Adjust the sleep time if necessary
     # Locate the semester select element
