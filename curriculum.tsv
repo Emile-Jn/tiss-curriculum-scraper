@@ -104,7 +104,7 @@ VAST/EX	Semi-Automatic Information and Knowledge Systems	188.387	VU	S	3.0	https:
 VAST/EX	Visual Data Science	186.868	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=186868&semester=2024W	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 VAST/EX	Visualization 2	186.833	VU	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=186833&semester=2024W	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 Thesis	Master Thesis	1		W and S	27.0		
-Thesis	Seminar for Master students in Data Science	180.722	SE	W and S	1.5		
+Thesis	Seminar for Master students in Data Science	180.772	SE	W and S	1.5		
 Thesis	Defense of Master Thesis	2		W and S	1.5		
 TSK	Technology for People 2040	194.082	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194082&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	FemChem – gender-sensitive collaboration and project management	034.018	SE	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=034018&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
@@ -138,6 +138,7 @@ TSK	Technical English Communication B	015.115	VU	S	3.0	https://tiss.tuwien.ac.at
 TSK	Technical English Communication B	015.115	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015115&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Technical Italien I	015.576	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015576&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Technical Italien II	015.642	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015642&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
+TSK	Swedish for Engineers 2	060.029	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060029&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Development of technical terms in ÖGS	629.008	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=629008&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Development of technical terms in ÖGS	629.008	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=629008&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Introduction to Austrian Sign Language and Deaf Culture	629.012	VU	S	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=629012&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
@@ -146,6 +147,7 @@ TSK	Accompanying lecture: Supporting deaf and hard of hearing students	629.009	U
 TSK	Mediativ competence in Civil Engineering Practice 1	242.026	SE	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=242026&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Mediativ competence in Civil Engineering Practice 2	242.027	SE	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=242027&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Group Dynamics	260.138	SE	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=260138&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
+TSK	Basic Skills dealing with organizations	260.142	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=260142&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Social Skills	330.139	SE	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=330139&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Career Planning and Self-Management	330.140	SE	S	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=330140&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Softskills for technicians communication of science and Co-creation	299.001	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=299001&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
@@ -173,7 +175,6 @@ TSK	How to Illustrate Engineering by Means of Audiovisual Media	015.725	VU	W	2.0
 TSK	Communication techniques	184.004	SE	S	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=184004&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Visualising Data and Information: Principles of Visualisation in Scientific Practices	040.009	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=040009&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Digital skills for student support projects	629.010	UE	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=629010&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
-TSK	Technology exploitation	015.082	VO	S	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015082&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Entrepreneurship for innovative corporations and high-tech start-ups	015.110	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015110&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Ringvorlesung Ökologie	253.118	VO	S	2.25	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=253118&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Legal issues of environmental protection	265.045	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=265045&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
@@ -190,7 +191,6 @@ TSK	Foundations of scientific work	060.015	VU	S	3.0	https://tiss.tuwien.ac.at/co
 TSK	Scientific work: Publishing and Dissemination	040.004	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=040004&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Introduction to Academic and Scientific Writing Publication	260.790	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=260790&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Science and the quest for knowledge	259.446	SE	S	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259446&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
-TSK	Further Education and Lifelong Learning	015.118	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015118&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Talente Programm der TU Wien	060.003	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060003&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Talente Programm der TU Wien	060.003	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060003&semester=2023W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Das TU Talente - Programm für Studierende in Master- und Doktoratsstudien	629.006	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=629006&semester=2024S	Modul Freie Wahlfächer und Transferable Skills
@@ -251,7 +251,6 @@ TSK	Technical English Communication B	064.022	VU	W	3.0	https://tiss.tuwien.ac.at
 TSK	Technical Italien I	064.024	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064024&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Technical Italien II	064.039	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064039&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Swedish for Engineers 1	060.028	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060028&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
-TSK	Swedish for Engineers 2	060.029	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060029&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Swedish for Engineers 2	064.040	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064040&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Development of technical terms in ÖGS	064.007	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064007&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Introduction to Austrian Sign Language and Deaf Culture	064.010	VU	W	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064010&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
@@ -260,7 +259,6 @@ TSK	IT Projects for Youth	192.058	UE	S	1.5	https://tiss.tuwien.ac.at/course/cour
 TSK	IT Projects for Youth	192.058	UE	W	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192058&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Creativity Engineering	015.100	VO	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015100&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Leadership Competency Coaching 1	188.383	SE	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188383&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
-TSK	Basic Skills dealing with organizations	260.142	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=260142&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Gruppendynamisches Seminar	314.018	SE	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=314018&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Management and Leadership	330.144	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=330144&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Softskills for technicians	181.208	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=181208&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
@@ -291,6 +289,7 @@ TSK	Presentations II (for Civil Engineers)	242.017	SE	W	3.0	https://tiss.tuwien.
 TSK	How to Illustrate Engineering by Means of Audiovisual Media	064.026	VU	S	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064026&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	How to Illustrate Engineering by Means of Audiovisual Media	064.026	VU	W	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064026&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Communication techniques	184.004	SE	W	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=184004&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
+TSK	Technology exploitation	015.082	VO	S	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015082&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Technology exploitation	015.082	VO	W	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015082&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Entrepreneurship for innovative corporations and high-tech start-ups	064.031	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064031&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Ecology and Sustainable Development	164.225	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=164225&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
@@ -318,6 +317,7 @@ TSK	Foundations of scientific work	060.015	VU	W	3.0	https://tiss.tuwien.ac.at/co
 TSK	Scientific work: Publishing and Dissemination	040.004	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=040004&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Foundations of scientific work	064.041	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064041&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Science and the quest for knowledge	259.446	SE	W	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259446&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
+TSK	Further Education and Lifelong Learning	015.118	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015118&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Talente Programm der TU Wien	064.001	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064001&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Talente Programm der TU Wien	064.001	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064001&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Das TU Talente - Programm für Studierende in Master- und Doktoratsstudien	064.005	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064005&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
