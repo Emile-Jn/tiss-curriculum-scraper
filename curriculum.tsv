@@ -30,9 +30,11 @@ MLS/CO	Statistical Simulation and Computerintensive Methods	107.330	VU	W	3.0	htt
 MLS/EX	AI/ML in the Era of Climate Change	194.125	VU	W	4.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194125&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Advanced Reinforcement Learning	194.170	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194170&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Reinforcement Learning	194.163	VU	S	6.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194163&semester=2025S	Modul MLS/EX - Machine Learning and Statistics - Extension
+MLS/EX	Algorithmic Social Choice	192.118	VU	S	6.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192118&semester=2025S	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Applied Deep Learning	194.077	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194077&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Bayesian Statistics	105.173	VU	W	5.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=105173&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Business Intelligence	188.429	VU	W	6.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188429&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
+MLS/EX	Crypto Asset Analytics	192.080	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192080&semester=2025S	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	General Regression Models	105.725	VU	S	5.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=105725&semester=2025S	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Generative AI	194.154	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194154&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Intelligent Audio and Music Analysis	194.039	VU	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194039&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
@@ -42,6 +44,7 @@ MLS/EX	Modelling and Simulation in Health Technology Assessment	194.094	VU	W	3.0
 MLS/EX	Multivariate Statistics	107.388	VO	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=107388&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Multivariate Statistics	107.391	UE	W	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=107391&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Probabilistic Programming and AI	194.150	VU	W	6.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194150&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
+MLS/EX	Problem Solving and Search in Artificial Intelligence	181.190	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=181190&semester=2025S	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Security, Privacy and Explainability in Machine Learning	194.055	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194055&semester=2025S	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Self-Organizing Systems	188.413	VU	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188413&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
 MLS/EX	Similarity Modeling 1 - Computational Seeing and Hearing	188.501	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188501&semester=2024W	Modul MLS/EX - Machine Learning and Statistics - Extension
@@ -59,6 +62,7 @@ BDHPC/EX	Database Theory	181.140	VU	W	3.0	https://tiss.tuwien.ac.at/course/cours
 BDHPC/EX	Fixed-Parameter Algorithms and Complexity	192.135	VU	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192135&semester=2024W	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
 BDHPC/EX	Frontiers of Algorithms and Complexity	192.136	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192136&semester=2024W	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
 BDHPC/EX	GPU Architectures and Computing	182.731	VU	S	6.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=182731&semester=2025S	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
+BDHPC/EX	Graph Drawing Algorithms	192.141	VU	S	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192141&semester=2025S	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
 BDHPC/EX	Heuristic Optimization Techniques	192.137	VU	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192137&semester=2024W	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
 BDHPC/EX	High Performance Computing	184.725	VU	S	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=184725&semester=2025S	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
 BDHPC/EX	Hybrid Quantum - Classical Systems	194.027	VU	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194027&semester=2024W	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
@@ -66,9 +70,12 @@ BDHPC/EX	Nonlinear Programming	105.147	VO	W	3.0	https://tiss.tuwien.ac.at/course
 BDHPC/EX	Nonlinear Programming	105.652	UE	W	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=105652&semester=2024W	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
 BDHPC/EX	Randomized Algorithms	192.045	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192045&semester=2024W	Modul BDHPC/EX - Big Data and High Performance Computing - Extension
 VAST/CO	Advanced Information Retrieval	188.980	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188980&semester=2025S	Modul VAST/CO - Visual Analytics and Semantic Technologies - Core
+VAST/EX	Deductive Databases	192.067	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192067&semester=2025S	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 VAST/EX	Description Logics and Ontologies	184.772	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=184772&semester=2024W	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
+VAST/EX	Document Analysis	183.628	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=183628&semester=2025S	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 VAST/EX	Information Visualization	186.143	UE	S	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=186143&semester=2025S	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 VAST/EX	Information Visualization	188.308	UE	W	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=188308&semester=2024W	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
+VAST/EX	Knowledge-based Systems	184.730	VU	S	6.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=184730&semester=2025S	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 VAST/EX	Knowledge Graphs	192.116	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192116&semester=2025S	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 VAST/EX	Natural Language Processing and Information Extraction	194.093	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194093&semester=2024W	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
 VAST/EX	Processing of Declarative Knowledge	184.205	VO	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=184205&semester=2024W	Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension
