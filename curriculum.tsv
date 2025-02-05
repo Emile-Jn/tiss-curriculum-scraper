@@ -23,6 +23,7 @@ FDS/EX	Digital Humanism	194.072	VU	W	3.0	https://tiss.tuwien.ac.at/course/course
 FDS/EX	Computer Numerics	101.484	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=101484&semester=2024W	Modul FDS/EX - Fundamentals of Data Science - Extension
 FDS/EX	Numerical Computation	101.973	VU	W	5.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=101973&semester=2024W	Modul FDS/EX - Fundamentals of Data Science - Extension
 FDS/EX	Sustainability in Computer Science	194.155	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194155&semester=2024W	Modul FDS/EX - Fundamentals of Data Science - Extension
+FDS/EX	Symmetric Cryptography	192.124	VU	S	6.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=192124&semester=2025S	Modul FDS/EX - Fundamentals of Data Science - Extension
 FDS/EX	User Research Methods	193.055	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=193055&semester=2024W	Modul FDS/EX - Fundamentals of Data Science - Extension
 FDS/EX	User Research Methods Project	193.056	PR	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=193056&semester=2024W	Modul FDS/EX - Fundamentals of Data Science - Extension
 MLS/CO	Recommender Systems	194.035	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=194035&semester=2025S	Modul MLS/CO - Machine Learning and Statistics - Core
@@ -192,6 +193,7 @@ TSK	Technology exploitation	015.082	VO	S	1.5	https://tiss.tuwien.ac.at/course/co
 TSK	Technology exploitation	015.082	VO	W	1.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015082&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Entrepreneurship for innovative corporations and high-tech start-ups	064.031	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064031&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Ecology and Sustainable Development	164.225	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=164225&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
+TSK	Ringvorlesung Ökologie	253.118	VO	S	2.25	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=253118&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Private Law	265.003	VO	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=265003&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Legal issues of environmental protection	265.045	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=265045&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Expert law	265.727	VO	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=265727&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
@@ -209,13 +211,17 @@ TSK	Transferable Skill - Account Management	330.302	UE	S	4.5	https://tiss.tuwien
 TSK	Transferable Skill - Account Management	330.302	UE	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=330302&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	E-Tutoring, Moderation of E-Learning	015.087	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015087&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Ecological and Social Aspects in Chemistry	166.127	VO	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=166127&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
+TSK	Barrierfree Buildings	259.345	VU	S	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259345&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
+TSK	Barrierfree Buildings	259.346	UE	S	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259346&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Planning of IT Projects and Public Procurement Law	384.107	VO	W	2.25	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=384107&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Sustainability Challenge	253.179	VO	W	4.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=253179&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Communicating Science	064.027	VU	S	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064027&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Communicating Science	064.027	VU	W	4.5	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064027&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
+TSK	Design for All	259.344	VO	S	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259344&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Foundations of scientific work	060.015	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060015&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Scientific work: Publishing and Dissemination	040.004	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=040004&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Foundations of scientific work	064.041	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064041&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
+TSK	Science and the quest for knowledge	259.446	SE	S	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259446&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Science and the quest for knowledge	259.446	SE	W	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259446&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Further Education and Lifelong Learning	015.118	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=015118&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Talente Programm der TU Wien	064.001	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064001&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
@@ -226,5 +232,6 @@ TSK	Introduction to scientific work	251.865	VU	W	2.0	https://tiss.tuwien.ac.at/c
 TSK	Recent Research in the field of Ecology	259.646	VO	W	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=259646&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
 TSK	Creative and Sustainable Product, Service and Process Engineering	064.043	VU	S	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064043&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Introduction into Research Data Management	058.005	VU	W	3.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=058005&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
-TSK	How to bachelor and master thesis	064.044	VU	S	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=064044&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
+TSK	How to bachelor and master thesis	060.030	VU	S	2.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060030&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
 TSK	Didactic Skills for tutors	060.031	VU	W	1.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=060031&semester=2024W	Modul Freie Wahlfächer und Transferable Skills
+TSK	80 years of Students' Union at TU Wien	081.001	VU	S	5.0	https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr=081001&semester=2025S	Modul Freie Wahlfächer und Transferable Skills
