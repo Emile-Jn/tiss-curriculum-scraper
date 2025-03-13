@@ -31,7 +31,7 @@ SECTION_NAMES = {
 THESIS_MODULE = pd.DataFrame(
     {'module': ['Thesis', 'Thesis', 'Thesis'],
      'title': ['Master Thesis', 'Seminar for Master students in Data Science', 'Defense of Master Thesis'],
-     'code': ['1', '180.772', '2'],  # arbitrary codes 1 and 2 for thesis and defense
+     'code': ['none', '180.772', 'none'],  # arbitrary code 'none' for the thesis
      'type': ['', 'SE', ''],
      'semester': ['W and S', 'W and S', 'W and S'],  # Winter and Summer
      'credits': [27, 1.5, 1.5]})
@@ -208,6 +208,20 @@ def extract_and_save_all_courses():
     all_courses.to_csv('curriculum.tsv', sep='\t', index=False)
     return all_courses
 
+def log_changes(added_courses, removed_courses):
+    """Append detected changes to logs.tsv with a timestamp."""
+    with open("logs.tsv", "a", encoding="utf-8") as log_file:
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d")
+        if not added_courses.empty:
+            for index, row in added_courses.iterrows():
+                log_file.write(f"""{timestamp}\tadded\t{row['module']}\t{row['title']}\t{row['code']}
+                               \t{row['type']}\t{row['semester']}\t{row['credits']}\n""")
+        if not removed_courses.empty:
+            for index, row in removed_courses.iterrows():
+                log_file.write(f"""{timestamp}\tremoved\t{row['module']}\t{row['title']}\t{row['code']}
+                               \t{row['type']}\t{row['semester']}\t{row['credits']}\n""")
+    print("Changes (if any) logged to logs.tsv.")
+
 if __name__ == '__main__':
     old_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
     all_courses = extract_and_save_all_courses()
@@ -215,6 +229,5 @@ if __name__ == '__main__':
 
     #%%
     new_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
-    new_courses = compare_df(new_curriculum, old_curriculum)
-    print('Courses that have been added or changed since the last update:')
-    print(new_courses)
+    added_courses, removed_courses = modified_courses(new_curriculum, old_curriculum)
+    log_changes(added_courses, removed_courses)  # save a record of the added and removed courses

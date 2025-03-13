@@ -53,19 +53,20 @@ def remove_canceled_courses(df: pd.DataFrame) -> pd.DataFrame:
     print(f'Removed {rows_before - df.shape[0]} canceled courses.')
     return df
 
-def compare_df(new_df: pd.DataFrame, old_df: pd.DataFrame) -> pd.DataFrame:
-    """Compare two dataframes and return the differences"""
-    if not ('link' in new_df.columns and 'link' in old_df.columns):
-        # Remove the link column from both dataframes
-        new_df = new_df.drop(columns='link', errors='ignore')
-        old_df = old_df.drop(columns='link', errors='ignore')
-    # Find the rows in df1 that are not in df2
-    new_df['key'] = new_df.apply(tuple, axis=1)
-    old_df['key'] = old_df.apply(tuple, axis=1)
-    result = new_df[~new_df['key'].isin(old_df['key'])].drop(columns=['key'])
-    # new_rows = new_df.merge(old_df, on=list(new_df.columns), indicator=True, how='left')
-    # return new_rows[new_rows['_merge'] == 'left_only']
-    return result
+def modified_courses(new_df: pd.DataFrame, old_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Find the added courses that are in new_df but not in old_df
+    and the removed courses that are in old_df but not in new_df
+    """
+    # Remove the link column from both dataframes
+    new_df_copy = new_df.drop(columns='link', errors='ignore')
+    old_df_copy = old_df.drop(columns='link', errors='ignore')
+    # Find the rows in new_df that are not in old_df
+    new_df_copy['key'] = new_df_copy.apply(tuple, axis=1)
+    old_df_copy['key'] = old_df_copy.apply(tuple, axis=1)
+    added_courses = new_df_copy[~new_df_copy['key'].isin(old_df_copy['key'])].drop(columns=['key'])
+    removed_courses = old_df_copy[~old_df_copy['key'].isin(new_df_copy['key'])].drop(columns=['key'])
+    return added_courses, removed_courses
 
 def make_url(course_code, semester, year=None) -> str:
     if not '.' in course_code:  # codes without a dot are artificially created
