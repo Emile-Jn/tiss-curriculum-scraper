@@ -16,3 +16,4 @@ Some of the scraping code is inspired by the work of [Claus Kovacs](https://gith
 on Tiss and extracts the courses as a table.
 - `table_formatting.py`: helper functions to clean the raw output of the scraping.
 - `curriculum.tsv`: The resulting curriculum in tab-separated format.
+- `logs.tsv`: A record of all (automatic) modifications to `curriculum.tsv`.
