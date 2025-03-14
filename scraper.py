@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 import chromedriver_autoinstaller
 import time
+from datetime import date
 import pandas as pd
 from tqdm import tqdm
 
@@ -211,7 +212,7 @@ def extract_and_save_all_courses():
 def log_changes(added_courses, removed_courses):
     """Append detected changes to logs.tsv with a timestamp."""
     with open("logs.tsv", "a", encoding="utf-8") as log_file:
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d")
+        timestamp = date.today().strftime("%Y-%m-%d")
         if not added_courses.empty:
             for index, row in added_courses.iterrows():
                 log_file.write(f"""{timestamp}\tadded\t{row['module']}\t{row['title']}\t{row['code']}
