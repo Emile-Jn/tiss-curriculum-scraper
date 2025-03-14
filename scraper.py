@@ -214,13 +214,11 @@ def log_changes(added_courses, removed_courses):
     with open("logs.tsv", "a", encoding="utf-8") as log_file:
         timestamp = date.today().strftime("%Y-%m-%d")
         if not added_courses.empty:
-            for index, row in added_courses.iterrows():
-                log_file.write(f"""{timestamp}\tadded\t{row['module']}\t{row['title']}\t{row['code']}
-                               \t{row['type']}\t{row['semester']}\t{row['credits']}\n""")
+            for _, row in added_courses.iterrows():
+                log_file.write(f'{timestamp}\tadded\t{row['module']}\t{row['title']}\t{row['code']}\t{row['type']}\t{row['semester']}\t{row['credits']}\n')
         if not removed_courses.empty:
-            for index, row in removed_courses.iterrows():
-                log_file.write(f"""{timestamp}\tremoved\t{row['module']}\t{row['title']}\t{row['code']}
-                               \t{row['type']}\t{row['semester']}\t{row['credits']}\n""")
+            for _, row in removed_courses.iterrows():
+                log_file.write(f'{timestamp}\tremoved\t{row['module']}\t{row['title']}\t{row['code']}\t{row['type']}\t{row['semester']}\t{row['credits']}\n')
     print("Changes (if any) logged to logs.tsv.")
 
 if __name__ == '__main__':
