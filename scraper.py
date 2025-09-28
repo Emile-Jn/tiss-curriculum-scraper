@@ -185,9 +185,13 @@ def get_tsk_courses(driver):
 def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
     curriculum = merge_years(curriculum)
     curriculum = remove_canceled_courses(curriculum)
-    # Remove duplicates, taking everything into account except the link
+    """ Remove duplicates, taking everything into account except the link AND the code.
+    Reasoning: if a course has a new code but all else is the same, there is no reason
+    to show it twice in the curriculum. If the number of credits has changed however, it
+    is useful for users to be able to select both versions of the course.
+    """
     before_drop_duplicates = curriculum.shape[0]
-    curriculum.drop_duplicates(subset=curriculum.columns.difference(['link']),
+    curriculum.drop_duplicates(subset=curriculum.columns.difference(['link', 'code']),
                                inplace=True,
                                keep='last')  # keep the most recent available course
     after_drop_duplicates = curriculum.shape[0]
@@ -215,10 +219,10 @@ def log_changes(added_courses, removed_courses):
         timestamp = date.today().strftime("%Y-%m-%d")
         if not added_courses.empty:
             for _, row in added_courses.iterrows():
-                log_file.write(f'{timestamp}\tadded\t{row['module']}\t{row['title']}\t{row['code']}\t{row['type']}\t{row['semester']}\t{row['credits']}\n')
+                log_file.write(f"{timestamp}\tadded\t{row['module']}\t{row['title']}\t{row['code']}\t{row['type']}\t{row['semester']}\t{row['credits']}\n")
         if not removed_courses.empty:
             for _, row in removed_courses.iterrows():
-                log_file.write(f'{timestamp}\tremoved\t{row['module']}\t{row['title']}\t{row['code']}\t{row['type']}\t{row['semester']}\t{row['credits']}\n')
+                log_file.write(f"{timestamp}\tremoved\t{row['module']}\t{row['title']}\t{row['code']}\t{row['type']}\t{row['semester']}\t{row['credits']}\n")
     print("Changes (if any) logged to logs.tsv.")
 
 if __name__ == '__main__':
