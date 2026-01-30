@@ -81,3 +81,114 @@ date	added or removed	module	title	code	type	semester	credits
 2026-01-29	added	MLS/EX	Deep Learning for Visual Computing	193.200	VU	S	6.0
 2026-01-29	added	TSK	Relativity for the non-specialist	136.009	VO	S	3.0
 2026-01-29	removed	VAST/EX	Graph Data Engineering and Management	192.176	VU	S	3.0
+2026-01-30	added	MLS/EX	Logic-based Artificial Intelligence	192.204	VU	S	6.0
+2026-01-30	removed	Foundations	Data-oriented Programming Paradigms	188.995	VU	W	3.0
+2026-01-30	removed	Foundations	Experiment Design for Data Science	188.992	VU	W	3.0
+2026-01-30	removed	Foundations	Machine Learning	184.702	VU	S	4.5
+2026-01-30	removed	Foundations	Data-intensive Computing	194.048	VU	S	3.0
+2026-01-30	removed	Foundations	Cognitive Foundations of Visualization	193.142	VO	S	3.0
+2026-01-30	removed	Foundations	Information Visualization	186.141	VO	S	3.0
+2026-01-30	removed	Foundations	Information Visualization	188.305	VO	W	3.0
+2026-01-30	removed	FDS/CO	Data Stewardship	194.044	VO	S	3.0
+2026-01-30	removed	FDS/EX	Data Stewardship	194.045	UE	S	3.0
+2026-01-30	removed	FDS/EX	Computer Numerics	101.484	VU	W	3.0
+2026-01-30	removed	FDS/EX	Numerical Computation	101.973	VU	W	5.5
+2026-01-30	removed	FDS/EX	Symmetric Cryptography	192.124	VU	S	6.0
+2026-01-30	removed	FDS/EX	User Research Methods	193.055	VU	W	3.0
+2026-01-30	removed	FDS/EX	User Research Methods Project	193.056	PR	W	3.0
+2026-01-30	removed	MLS/CO	Recommender Systems	194.035	VU	S	3.0
+2026-01-30	removed	MLS/EX	Advanced Modeling and Simulation	194.056	VU	S	3.0
+2026-01-30	removed	MLS/EX	AI/ML in the Era of Climate Change	194.125	VU	W	4.0
+2026-01-30	removed	MLS/EX	Advanced Reinforcement Learning	194.170	VU	W	3.0
+2026-01-30	removed	MLS/EX	Algorithmic Social Choice	192.118	VU	S	6.0
+2026-01-30	removed	MLS/EX	Reinforcement Learning	194.163	VU	S	6.0
+2026-01-30	removed	MLS/EX	Applied Deep Learning	194.077	VU	W	3.0
+2026-01-30	removed	MLS/EX	Crypto Asset Analytics	192.080	VU	S	3.0
+2026-01-30	removed	MLS/EX	Deep Learning for Visual Computing	183.663	VU	S	3.0
+2026-01-30	removed	MLS/EX	Generative AI	194.154	VU	W	3.0
+2026-01-30	removed	MLS/EX	Intelligent Audio and Music Analysis	194.039	VU	W	4.5
+2026-01-30	removed	MLS/EX	Machine Learning for Visual Computing	183.605	VU	W	4.5
+2026-01-30	removed	MLS/EX	Mathematical Programming	186.835	VU	S	3.0
+2026-01-30	removed	MLS/EX	Probabilistic Programming and AI	194.150	VU	W	6.0
+2026-01-30	removed	MLS/EX	Problem Solving and Search in Artificial Intelligence	181.190	VU	S	3.0
+2026-01-30	removed	MLS/EX	Security, Privacy and Explainability in Machine Learning	194.055	VU	S	3.0
+2026-01-30	removed	MLS/EX	Social Network Analysis	194.050	VU	W	3.0
+2026-01-30	removed	MLS/EX	Theoretical Foundations and Research Topics in Machine Learning	194.100	VU	S	3.0
+2026-01-30	removed	MLS/EX	Machine Learning Operations	194.182	VU	S	3.0
+2026-01-30	removed	BDHPC/CO	Basics of Parallel Computing	191.114	VU	S	3.0
+2026-01-30	removed	BDHPC/EX	Advanced Multiprocessor Programming	184.726	VU	W	4.5
+2026-01-30	removed	BDHPC/EX	Algorithmic Geometry	192.133	VU	W	4.5
+2026-01-30	removed	BDHPC/EX	Approximation Algorithms	186.102	VU	W	3.0
+2026-01-30	removed	BDHPC/EX	Database Theory	181.140	VU	W	3.0
+2026-01-30	removed	BDHPC/EX	Fixed-Parameter Algorithms and Complexity	192.135	VU	W	4.5
+2026-01-30	removed	BDHPC/EX	Frontiers of Algorithms and Complexity	192.136	VU	W	3.0
+2026-01-30	removed	BDHPC/EX	Graph Drawing Algorithms	192.141	VU	S	4.5
+2026-01-30	removed	BDHPC/EX	Heuristic Optimization Techniques	192.137	VU	W	4.5
+2026-01-30	removed	BDHPC/EX	High Performance Computing	184.725	VU	S	4.5
+2026-01-30	removed	BDHPC/EX	Hybrid Quantum - Classical Systems	194.027	VU	W	4.5
+2026-01-30	removed	BDHPC/EX	Optimization in Transport and Logistics	186.190	VU	S	3.0
+2026-01-30	removed	BDHPC/EX	Structural Decompositions and Algorithms	186.856	VU	S	3.0
+2026-01-30	removed	BDHPC/EX	Randomized Algorithms	192.045	VU	W	3.0
+2026-01-30	removed	VAST/CO	Advanced Information Retrieval	188.980	VU	S	3.0
+2026-01-30	removed	VAST/CO	Design and Evaluation of Visualisations	193.143	UE	S	3.0
+2026-01-30	removed	VAST/EX	Deductive Databases	192.067	VO	S	3.0
+2026-01-30	removed	VAST/EX	Description Logics and Ontologies	184.772	VU	W	3.0
+2026-01-30	removed	VAST/EX	Document Analysis	183.628	VU	S	3.0
+2026-01-30	removed	VAST/EX	Information Visualization	186.143	UE	S	1.5
+2026-01-30	removed	VAST/EX	Information Visualization	188.308	UE	W	1.5
+2026-01-30	removed	VAST/EX	Knowledge-based Systems	184.730	VU	S	6.0
+2026-01-30	removed	VAST/EX	Knowledge Graphs	192.116	VU	S	3.0
+2026-01-30	removed	VAST/EX	Medical Image Processing	183.269	VO	S	3.0
+2026-01-30	removed	VAST/EX	Medical Image Processing	183.630	UE	S	3.0
+2026-01-30	removed	VAST/EX	Processing of Declarative Knowledge	184.205	VO	W	3.0
+2026-01-30	removed	VAST/EX	Realtime Visualization	186.191	VU	W	3.0
+2026-01-30	removed	VAST/EX	Semantic Technologies	184.729	VU	S	3.0
+2026-01-30	removed	VAST/EX	Visual Data Science	186.868	VU	W	3.0
+2026-01-30	removed	VAST/EX	Visualization 2	186.833	VU	W	4.5
+2026-01-30	removed	TSK	Technology for People | Project Laboratory at Heiligenkreuz Castle – Lecture Series "Building Archaeology"	251.237	VU	S	3.0
+2026-01-30	removed	TSK	Building for people :: historic.smart	251.843	VO	W	2.0
+2026-01-30	removed	TSK	Building for people :: Sacral building in urban context	251.852	VO	W	2.0
+2026-01-30	removed	TSK	Technology for People 2040	194.082	VU	S	3.0
+2026-01-30	removed	TSK	Technology for People 2040	194.082	VU	W	3.0
+2026-01-30	removed	TSK	Leadership Competency Coaching 1	188.383	SE	S	3.0
+2026-01-30	removed	TSK	Mediativ competence in Civil Engineering Practice 1	242.026	SE	S	3.0
+2026-01-30	removed	TSK	Group Dynamics	260.138	SE	S	3.0
+2026-01-30	removed	TSK	Softskills for technicians	181.208	VU	W	3.0
+2026-01-30	removed	TSK	Softskills for technicians communication of science and Co-creation	299.001	VU	S	3.0
+2026-01-30	removed	TSK	Social skills for tutors	060.002	SE	S	2.0
+2026-01-30	removed	TSK	TU.impact – the buddy program of the TU Wien	064.003	SE	S	3.0
+2026-01-30	removed	TSK	TU.impact – the buddy program of the TU Wien	064.003	SE	W	3.0
+2026-01-30	removed	TSK	Mental resilience for students	251.178	UE	S	2.0
+2026-01-30	removed	TSK	Mental resilience for students	251.178	UE	W	2.0
+2026-01-30	removed	TSK	Communication and rhetoric	181.200	SE	W	3.0
+2026-01-30	removed	TSK	Applied Environmental Psychology	280.A06	VU	S	3.0
+2026-01-30	removed	TSK	Getting agreement in negotiations	352.031	VU	S	3.0
+2026-01-30	removed	TSK	Rhetoric body language and training in assertiveness and argumentation	352.490	VU	S	3.0
+2026-01-30	removed	TSK	Verständliche Wissenschaft - Lehren in der Kinderuni	011.001	VO	S	3.0
+2026-01-30	removed	TSK	Presentations I (for Civil Engineers)	242.016	SE	S	3.0
+2026-01-30	removed	TSK	Presentations II (for Civil Engineers)	242.017	SE	S	3.0
+2026-01-30	removed	TSK	Communication techniques	184.004	SE	S	1.5
+2026-01-30	removed	TSK	Ringvorlesung Ökologie	253.118	VO	S	2.25
+2026-01-30	removed	TSK	Legal issues of environmental protection	265.045	VO	S	3.0
+2026-01-30	removed	TSK	Expert law	265.727	VO	W	3.0
+2026-01-30	removed	TSK	Management for civil engineers	123.630	VO	W	3.0
+2026-01-30	removed	TSK	From Innovation to Product: Business Modelling for Scientists and Engineers	058.004	VU	S	3.0
+2026-01-30	removed	TSK	Barrierfree Buildings	259.345	VU	S	1.0
+2026-01-30	removed	TSK	Barrierfree Buildings	259.346	UE	S	1.0
+2026-01-30	removed	TSK	Planning of IT Projects and Public Procurement Law	384.107	VO	W	2.25
+2026-01-30	removed	TSK	Design for All	259.344	VO	S	2.0
+2026-01-30	removed	TSK	Information Literacy: Publishing and Dissemination	040.004	VU	S	3.0
+2026-01-30	removed	TSK	Scientific work: Publishing and Dissemination	040.004	VU	W	3.0
+2026-01-30	removed	TSK	Science and the quest for knowledge	259.446	SE	S	1.0
+2026-01-30	removed	TSK	Further Education and Lifelong Learning	015.118	VU	S	3.0
+2026-01-30	removed	TSK	Talente Programm der TU Wien	064.001	VU	W	3.0
+2026-01-30	removed	TSK	Das TU Talente - Programm für Studierende in Master- und Doktoratsstudien	064.005	VU	W	3.0
+2026-01-30	removed	TSK	Mentoring - Mathematics (FaMe)	060.017	SE	S	2.0
+2026-01-30	removed	TSK	Information Literacy: Literature Research, Citations, and Writing for Bachelor and Master Theses	040.003	SE	S	2.0
+2026-01-30	removed	TSK	Scientific Work: Literature Research, Citations, and Academic Writing	040.003	SE	W	2.0
+2026-01-30	removed	TSK	Introduction to scientific work	251.865	VU	S	2.0
+2026-01-30	removed	TSK	Data Literacy: 3D Visualisation in Virtual Reality	040.007	SE	S	3.0
+2026-01-30	removed	TSK	How to bachelor and master thesis	060.030	VU	S	2.0
+2026-01-30	removed	TSK	Didactic Skills for tutors	060.031	VU	W	1.0
+2026-01-30	removed	TSK	80 years of Students' Union at TU Wien	081.001	VU	S	5.0
+2026-01-30	removed	TSK	Accompanying seminar for mentors of the TUW mentoring program	064.012	SE	S	3.0
