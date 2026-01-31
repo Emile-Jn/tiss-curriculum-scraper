@@ -192,3 +192,6 @@ date	added or removed	module	title	code	type	semester	credits
 2026-01-30	removed	TSK	Didactic Skills for tutors	060.031	VU	W	1.0
 2026-01-30	removed	TSK	80 years of Students' Union at TU Wien	081.001	VU	S	5.0
 2026-01-30	removed	TSK	Accompanying seminar for mentors of the TUW mentoring program	064.012	SE	S	3.0
+2026-01-31	added	FDS/EX	System and Application Security	192.112	VU	S	6.0
+2026-01-31	added	MLS/EX	Problem Solving and Search in Artificial Intelligence	192.207	VU	S	6.0
+2026-01-31	added	VAST/EX	Medical Image Processing and Machine Learning	193.215	VU	S	6.0
