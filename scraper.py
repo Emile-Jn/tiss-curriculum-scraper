@@ -3,13 +3,11 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.safari.service import Service as SafariService
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 import chromedriver_autoinstaller
 import time
 from datetime import date
-import pandas as pd
 from tqdm import tqdm
 
 # Custom module

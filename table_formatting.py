@@ -22,9 +22,8 @@ def same_season(season_1: str, season_2: str) -> bool:
 
 def later_year(year_1: str, year_2: str) -> bool:
     """Check if year_1 is later than year_2"""
-    if int(year_1) > int(year_2):
-        return True
-    return False
+    return int(year_1) > int(year_2)
+
 
 def remove_year_info(sem: str) -> str:
     """
