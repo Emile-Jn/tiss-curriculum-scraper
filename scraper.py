@@ -259,7 +259,11 @@ def extract_and_save_all_courses() -> pd.DataFrame:
     previous_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
     driver = initiate_chrome_driver()
     curriculum = get_data_science_curriculum(driver)
+    if curriculum.shape[0] < 100: # sanity check
+        raise ValueError("Scraping the Data Science curriculum failed, fewer than 100 courses found.")
     tsk_courses = get_tsk_courses(driver)
+    if tsk_courses.shape[0] < 100: # sanity check
+        raise ValueError("Scraping the TSK curriculum failed, fewer than 100 courses found.")
     driver.quit()
     all_courses = pd.concat([curriculum, tsk_courses], ignore_index=True)
     all_courses = clean_curriculum(all_courses)
