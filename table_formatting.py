@@ -5,25 +5,6 @@ author: Emile Johnston
 Some functions to clean up the raw output of the scraping functions in scraper.py.
 """
 import pandas as pd
-from datetime import datetime
-
-def same_season(season_1: str, season_2: str) -> bool:
-    """
-    Check if two strings refer to the same academic season
-    :param season_1: e.g. 'W' or 's' or '2024W'
-    :param season_2: same as season_1
-    :return: True if the two strings refer to the same season
-    """
-    if 'w' in season_1.lower() and 'w' in season_2.lower():
-        return True
-    if 's' in season_1.lower() and 's' in season_2.lower():
-        return True
-    return False
-
-def later_year(year_1: str, year_2: str) -> bool:
-    """Check if year_1 is later than year_2"""
-    return int(year_1) > int(year_2)
-
 
 def remove_year_info(sem: str) -> str:
     """
@@ -66,29 +47,3 @@ def modified_courses(new_df: pd.DataFrame, old_df: pd.DataFrame) -> tuple[pd.Dat
     added_courses = new_df_copy[~new_df_copy['key'].isin(old_df_copy['key'])].drop(columns=['key'])
     removed_courses = old_df_copy[~old_df_copy['key'].isin(new_df_copy['key'])].drop(columns=['key'])
     return added_courses, removed_courses
-
-def make_url(course_code, semester, year=None) -> str:
-    if not '.' in course_code:  # codes without a dot are artificially created
-        return ''
-    code = course_code.replace('.', '')  # remove the dot in the course code
-    if len(code) != 6:  # course codes must be six digits
-        return ''
-    if not isinstance(year, int):
-        raise ValueError('Year must be an integer.')
-    if year < 2023:
-        raise ValueError('Year must be at least 2023.')
-    if year is None:
-        year = get_current_course_year(semester)
-    return f'https://tiss.tuwien.ac.at/course/courseDetails.xhtml?courseNr={code}&semester={year}{semester}'
-
-def get_current_course_year(semester: str) -> int:
-    """Get the current year of the course"""
-    now = datetime.now()
-    if 'w' in semester.lower():
-        if now.month < 10:  # if this year's winter semester has not started yet
-            return now.year - 1  # use last year's information
-        return now.year  # use the current information
-    if 's' in semester.lower():
-        if now.month < 3:  # if this year's summer semester has not started yet
-            return now.year - 1  # use last year's information
-        return now.year  # use the current information
