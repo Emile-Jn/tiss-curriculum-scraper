@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python3
 
+# Third-party modules
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -39,6 +40,11 @@ THESIS_MODULE = pd.DataFrame(
 #%% functions
 
 def initiate_chrome_driver() -> webdriver.Chrome:
+    """
+    Initiate a headless Chrome WebDriver to scrape Tiss from any device (including GitHub Actions).
+    Returns:
+        webdriver.Chrome: the initiated Chrome WebDriver
+    """
     chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
     # and if it doesn't exist, download it automatically,
     # then add chromedriver to path
@@ -60,7 +66,18 @@ def initiate_chrome_driver() -> webdriver.Chrome:
     return driver
 
 
-def scrape_curriculum_page(URL, driver: webdriver.Chrome, section_names: dict=None) -> pd.DataFrame:
+def scrape_curriculum_page(url: str, driver: webdriver.Chrome, section_names: dict=None) -> pd.DataFrame:
+    """
+    Open the curriculum page at URL using the provided WebDriver, scrape the curriculum
+    table for all available semesters line by line, and return a dataframe with all courses.
+    Args:
+        url: the full URL of the curriculum page to scrape
+        driver: the Selenium WebDriver to use for scraping
+        section_names: the names of the different modules in the Data Science curriculum
+
+    Returns:
+        all courses on the page as a pandas dataframe
+    """
     columns = ['title', 'code', 'type', 'semester', 'credits', 'link']
     if section_names is not None:  # if using section names to extract modules
         columns.insert(0, 'module')
@@ -68,12 +85,12 @@ def scrape_curriculum_page(URL, driver: webdriver.Chrome, section_names: dict=No
     curriculum = pd.DataFrame(columns=columns)
 
     try:
-        driver.get(URL)
+        driver.get(url)
     except Exception as e:
         print("Driver failed, restarting WebDriver:", e)
         driver.quit()
         driver = initiate_chrome_driver()  # Restart the WebDriver
-        driver.get(URL)
+        driver.get(url)
     time.sleep(3)  # wait 3 seconds to let the page load
     # driver.implicitly_wait(0.5)  # not needed?
     # Language of the page is German by default, switch it to English
@@ -105,10 +122,12 @@ def scrape_curriculum_page(URL, driver: webdriver.Chrome, section_names: dict=No
 def scrape_rows(rows, curriculum: pd.DataFrame, section_names: dict=None) -> pd.DataFrame:
     """
     Add the valid courses found in rows to the curriculum dataframe.
-    :param rows: a html element containing the rows of the curriculum table
-    :param curriculum: a pandas dataframe in which each row is a course
-    :param section_names: the names of the sections in the curriculum, which are modules
-    :return: the curriculum dataframe with the new courses added
+    Args
+        rows: a html element containing the rows of the curriculum table
+        curriculum: a pandas dataframe in which each row is a course
+        section_names: the names of the sections in the curriculum, which are modules
+    Returns:
+        the curriculum dataframe with the new courses added
     """
     n_courses = 0
     if section_names is not None:
@@ -148,7 +167,14 @@ def scrape_rows(rows, curriculum: pd.DataFrame, section_names: dict=None) -> pd.
 
 
 def get_course(cells) -> pd.DataFrame:
-    # global curriculum
+    """
+    Extract the course information from the given row cells.
+    Args:
+        cells: HTML elements containing the 4 grid cells of a course row
+
+    Returns:
+        a pandas dataframe with a single row containing the course information
+    """
     # get the title of the course
     course_title = cells[0].find_element(By.CLASS_NAME, "courseTitle").text.strip()
     # get the course key
@@ -165,15 +191,29 @@ def get_course(cells) -> pd.DataFrame:
          'semester': [course_info[2]],
          'credits': [ects]})
     return new_row
-    # curriculum = pd.concat([curriculum, new_row], ignore_index=True)
-    # print(f'\r Processed {n_courses+1} courses.', end='')
 
 def get_data_science_curriculum(driver):
+    """
+    Use the driver to obtain the complete data science curriculum with thesis module
+    Args:
+        driver: the Selenium WebDriver to use for scraping
+
+    Returns:
+        The full curriculum as a pandas dataframe
+    """
     URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=7871&dsrid=370&key=67853"
     curriculum = scrape_curriculum_page(URL, driver, SECTION_NAMES)
     return pd.concat([curriculum, THESIS_MODULE], ignore_index=True)
 
 def get_tsk_courses(driver):
+    """
+    Use the driver to obtain the TSK courses
+    Args:
+        driver: the Selenium WebDriver to use for scraping
+
+    Returns:
+        All TSK courses as a pandas dataframe
+    """
     URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=2955&dsrid=810&date=20241001&key=57214"
     tsk_courses = scrape_curriculum_page(URL, driver)
     tsk_courses['module'] = 'TSK'
@@ -181,6 +221,14 @@ def get_tsk_courses(driver):
     return tsk_courses
 
 def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
+    """
+    Remove duplicates and canceled courses from the curriculum and remove rows with all missing values.
+    Args:
+        curriculum: all courses in a pandas dataframe
+
+    Returns:
+        the cleaned curriculum as a pandas dataframe
+    """
     curriculum = merge_years(curriculum)
     curriculum = remove_canceled_courses(curriculum)
     """ Remove duplicates, taking everything into account except the link AND the code.
@@ -199,7 +247,15 @@ def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
     print(f'Removed {after_drop_duplicates - after_drop_na} rows with all missing values.')
     return curriculum
 
-def extract_and_save_all_courses():
+def extract_and_save_all_courses() -> pd.DataFrame:
+    """
+    Extract all courses from the curriculum and TSK pages, clean the data,
+    compare with the previous curriculum, save the new curriculum to curriculum.tsv,
+    and return the new curriculum dataframe.
+    Returns:
+        all courses in the final format as a pandas dataframe
+    """
+    # TODO: merge scraped courses with previous curriculum, add "active" column to indicate if the course is still in Tiss
     previous_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
     driver = initiate_chrome_driver()
     curriculum = get_data_science_curriculum(driver)
@@ -223,12 +279,15 @@ def log_changes(added_courses, removed_courses):
                 log_file.write(f"{timestamp}\tremoved\t{row['module']}\t{row['title']}\t{row['code']}\t{row['type']}\t{row['semester']}\t{row['credits']}\n")
     print("Changes (if any) logged to logs.tsv.")
 
-if __name__ == '__main__':
+def main():
+    # TODO: make safety checks, return error message if scraping fails
     old_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
     all_courses = extract_and_save_all_courses()
     print('All courses extracted and saved to curriculum.tsv.')
 
-    #%%
     new_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
     added_courses, removed_courses = modified_courses(new_curriculum, old_curriculum)
     log_changes(added_courses, removed_courses)  # save a record of the added and removed courses
+
+if __name__ == '__main__':
+    main()
