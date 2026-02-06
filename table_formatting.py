@@ -33,17 +33,55 @@ def remove_canceled_courses(df: pd.DataFrame) -> pd.DataFrame:
     print(f'Removed {rows_before - df.shape[0]} canceled courses.')
     return df
 
-def modified_courses(new_df: pd.DataFrame, old_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+def modified_courses(old_df: pd.DataFrame, new_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Find the added courses that are in new_df but not in old_df
-    and the removed courses that are in old_df but not in new_df
+    and the removed courses that are in old_df but not in new_df.
+
+    Behavior changes:
+    - added_courses: rows in new_df with active == True and whose identity
+      (all columns except 'link' and 'active') is not present in old_df.
+    - removed_courses: rows in old_df with active == True whose identity is
+      present in new_df but there with active == False.
+    - If a course is in old_df with active == False and isn't in new_df -> raise ValueError.
+    - If a course is in new_df with active == False and isn't in old_df -> raise ValueError.
     """
-    # Remove the link column from both dataframes
-    new_df_copy = new_df.drop(columns='link', errors='ignore')
-    old_df_copy = old_df.drop(columns='link', errors='ignore')
-    # Find the rows in new_df that are not in old_df
-    new_df_copy['key'] = new_df_copy.apply(tuple, axis=1)
-    old_df_copy['key'] = old_df_copy.apply(tuple, axis=1)
-    added_courses = new_df_copy[~new_df_copy['key'].isin(old_df_copy['key'])].drop(columns=['key'])
-    removed_courses = old_df_copy[~old_df_copy['key'].isin(new_df_copy['key'])].drop(columns=['key'])
+    # Ensure active column exists in both frames
+    if 'active' not in old_df.columns or 'active' not in new_df.columns:
+        raise ValueError("Both old_df and new_df must contain an 'active' column")
+
+    # Build an identity key that represents a course irrespective of its `active` state or `link`.
+    id_cols_drop = ['link', 'active']
+
+    def build_id_series(df: pd.DataFrame) -> pd.Series:
+        base = df.drop(columns=id_cols_drop, errors='ignore')
+        # Convert each row to a tuple to use as a stable identity key
+        return base.apply(lambda r: tuple(r.tolist()), axis=1)
+
+    old_df_copy = old_df.copy()
+    new_df_copy = new_df.copy()
+
+    old_df_copy['__id'] = build_id_series(old_df_copy)
+    new_df_copy['__id'] = build_id_series(new_df_copy)
+
+    # Error: any course that was inactive in old_df but is completely missing from new_df
+    orphan_old_inactive = old_df_copy[(old_df_copy['active'] == False) & (~old_df_copy['__id'].isin(new_df_copy['__id']))]
+    if not orphan_old_inactive.empty:
+        # Provide some context for the error: first few offending rows
+        samples = orphan_old_inactive.drop(columns=['__id']).head(10).to_dict(orient='records')
+        raise ValueError(f"Found {len(orphan_old_inactive)} courses that were inactive in old_df but are missing from new_df. Examples: {samples}")
+
+    # Error: any course that is inactive in new_df but wasn't present in old_df
+    orphan_new_inactive = new_df_copy[(new_df_copy['active'] == False) & (~new_df_copy['__id'].isin(old_df_copy['__id']))]
+    if not orphan_new_inactive.empty:
+        samples = orphan_new_inactive.drop(columns=['__id']).head(10).to_dict(orient='records')
+        raise ValueError(f"Found {len(orphan_new_inactive)} courses that are inactive in new_df but were not present in old_df. Examples: {samples}")
+
+    # Added courses: present in new_df, active == True, and identity not in old_df
+    added_courses = new_df_copy[(new_df_copy['active'] == True) & (~new_df_copy['__id'].isin(old_df_copy['__id']))].drop(columns=['__id'])
+
+    # Removed courses: were active in old_df and in new_df the same identity exists but is inactive
+    ids_now_inactive = set(new_df_copy[new_df_copy['active'] == False]['__id'].tolist())
+    removed_courses = old_df_copy[(old_df_copy['active'] == True) & (old_df_copy['__id'].isin(ids_now_inactive))].drop(columns=['__id'])
+
     return added_courses, removed_courses

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python3
-
+import pandas as pd
 # Third-party modules
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -29,14 +29,17 @@ SECTION_NAMES = {
     "Prüfungsfach Freie Wahlfächer und Transferable Skills": "Free Electives",
 }
 THESIS_MODULE = pd.DataFrame(
-    {'module': ['Thesis', 'Thesis', 'Thesis'],
+    {'module': ['Thesis'] * 3,
      'title': ['Master Thesis', 'Seminar for Master students in Data Science', 'Defense of Master Thesis'],
      'code': ['none', '180.772', 'none'],  # arbitrary code 'none' for the thesis
-     'type': ['', 'SE', ''],
-     'semester': ['W and S', 'W and S', 'W and S'],  # Winter and Summer
+     'type': [None, 'SE', None],
+     'semester': ['W and S'] * 3,  # Winter and Summer
      'credits': [27, 1.5, 1.5]})
 # TODO: instead of adding it manually, scrape the thesis seminar in case its info changes in the future?
 
+# Columns to ignore when eliminating duplicate courses.
+# Logic: if a course appears twice but only the link or the code is different, it should appear only once.
+DUPL_COLS = ['link', 'code']
 #%% functions
 
 def initiate_chrome_driver() -> webdriver.Chrome:
@@ -78,11 +81,18 @@ def scrape_curriculum_page(url: str, driver: webdriver.Chrome, section_names: di
     Returns:
         all courses on the page as a pandas dataframe
     """
+
+    # Initialise an empty curriculum dataframe
     columns = ['title', 'code', 'type', 'semester', 'credits', 'link']
     if section_names is not None:  # if using section names to extract modules
         columns.insert(0, 'module')
         columns.append('full_module_name')
     curriculum = pd.DataFrame(columns=columns)
+    # Define correct types
+    dtypes = {col: 'str' for col in columns}
+    dtypes['credits'] = 'float64'
+    # Apply the types
+    curriculum = curriculum.astype(dtypes)
 
     try:
         driver.get(url)
@@ -183,14 +193,18 @@ def get_course(cells) -> pd.DataFrame:
     course_info = course_key.split(" ")
     # get the number of ECTS credits from the last cell in the row
     ects = float(cells[3].text)
+    if ects < 0.5:
+        raise ValueError(f"ECTS credits for course {course_title} is less than 0.5, which is unlikely to be correct. Please check the course information in Tiss.")
     # make a new course object
-    new_row = pd.DataFrame(
-        {'title': [course_title],
-         'code': [str(course_info[0])],
-         'type': [course_info[1]],
-         'semester': [course_info[2]],
-         'credits': [ects]})
-    return new_row
+    new_row = {'title': [course_title],
+               'code': [str(course_info[0])],
+               'type': [course_info[1]],
+               'semester': [course_info[2]],
+               'credits': [ects]}
+    for key, v in new_row.items():
+        if isinstance(v, str):
+            new_row[key] = v.replace('\t', ' ') # remove tabs to avoid issues when saving to tsv
+    return pd.DataFrame(new_row)
 
 def get_data_science_curriculum(driver):
     """
@@ -201,6 +215,7 @@ def get_data_science_curriculum(driver):
     Returns:
         The full curriculum as a pandas dataframe
     """
+    print(f'\n{'- '*20}\nScraping the Data Science curriculum ...')
     URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=7871&dsrid=370&key=67853"
     curriculum = scrape_curriculum_page(URL, driver, SECTION_NAMES)
     return pd.concat([curriculum, THESIS_MODULE], ignore_index=True)
@@ -214,6 +229,7 @@ def get_tsk_courses(driver):
     Returns:
         All TSK courses as a pandas dataframe
     """
+    print(f'\n{'- '*20}\nScraping the TSK courses ...')
     URL = "https://tiss.tuwien.ac.at/curriculum/public/curriculum.xhtml?dswid=2955&dsrid=810&date=20241001&key=57214"
     tsk_courses = scrape_curriculum_page(URL, driver)
     tsk_courses['module'] = 'TSK'
@@ -229,6 +245,7 @@ def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
     Returns:
         the cleaned curriculum as a pandas dataframe
     """
+    print('\n') # for better readability of the print statements
     curriculum = merge_years(curriculum)
     curriculum = remove_canceled_courses(curriculum)
     """ Remove duplicates, taking everything into account except the link AND the code.
@@ -237,7 +254,7 @@ def clean_curriculum(curriculum: pd.DataFrame) -> pd.DataFrame:
     is useful for users to be able to select both versions of the course.
     """
     before_drop_duplicates = curriculum.shape[0]
-    curriculum.drop_duplicates(subset=curriculum.columns.difference(['link', 'code']),
+    curriculum.drop_duplicates(subset=curriculum.columns.difference(DUPL_COLS),
                                inplace=True,
                                keep='last')  # keep the most recent available course
     after_drop_duplicates = curriculum.shape[0]
@@ -255,20 +272,30 @@ def extract_and_save_all_courses() -> pd.DataFrame:
     Returns:
         all courses in the final format as a pandas dataframe
     """
-    # TODO: merge scraped courses with previous curriculum, add "active" column to indicate if the course is still in Tiss
+    # Get the previously saved courses
     previous_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
+    previous_curriculum['active'] = False # assume courses are not active until we find them in the new curriculum, then we will set active to True for the courses that are still in Tiss
+    # Get current courses in Tiss
     driver = initiate_chrome_driver()
     curriculum = get_data_science_curriculum(driver)
-    if curriculum.shape[0] < 100: # sanity check
-        raise ValueError("Scraping the Data Science curriculum failed, fewer than 100 courses found.")
+    if curriculum.shape[0] < 50: # sanity check
+        raise ValueError("Scraping the Data Science curriculum failed, fewer than 60 courses found.")
     tsk_courses = get_tsk_courses(driver)
-    if tsk_courses.shape[0] < 100: # sanity check
-        raise ValueError("Scraping the TSK curriculum failed, fewer than 100 courses found.")
+    if tsk_courses.shape[0] < 50: # sanity check
+        raise ValueError("Scraping the TSK curriculum failed, fewer than 50 courses found.")
     driver.quit()
-    all_courses = pd.concat([curriculum, tsk_courses], ignore_index=True)
-    all_courses = clean_curriculum(all_courses)
-    new_changes = all_courses[~all_courses['code'].isin(previous_curriculum['code'])]
-    all_courses.to_csv('curriculum.tsv', sep='\t', index=False)
+    current_curriculum = pd.concat([curriculum, tsk_courses], ignore_index=True)
+    current_curriculum = clean_curriculum(current_curriculum)
+    current_curriculum['active'] = True
+    # merge current curriculum with previous curriculum
+    all_courses = pd.concat([previous_curriculum, current_curriculum], ignore_index=True)
+    all_courses.drop_duplicates(subset=curriculum.columns.difference(DUPL_COLS + ['active']),
+                                inplace=True,
+                                keep='last')
+    all_courses.reset_index(drop=True, inplace=True) # otherwise conflicts
+    # Using 'with' ensures that the file is closed properly before other code executes
+    with open('curriculum.tsv', 'w') as f:
+        all_courses.to_csv(f, sep='\t', index=False)
     return all_courses
 
 def log_changes(added_courses, removed_courses):
@@ -284,13 +311,15 @@ def log_changes(added_courses, removed_courses):
     print("Changes (if any) logged to logs.tsv.")
 
 def main():
-    # TODO: make safety checks, return error message if scraping fails
-    old_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
-    all_courses = extract_and_save_all_courses()
+    previous_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
+    current_curriculum = extract_and_save_all_courses()
+    saved_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
+    if not saved_curriculum.equals(current_curriculum): # sanity check
+        print("Saved curriculum shape: ", saved_curriculum.shape)
+        print("Current curriculum shape: ", current_curriculum.shape)
+        raise ValueError("The extracted curriculum was not saved correctly to curriculum.tsv.")
     print('All courses extracted and saved to curriculum.tsv.')
-
-    new_curriculum = pd.read_csv('curriculum.tsv', sep='\t')
-    added_courses, removed_courses = modified_courses(new_curriculum, old_curriculum)
+    added_courses, removed_courses = modified_courses(previous_curriculum, current_curriculum)
     log_changes(added_courses, removed_courses)  # save a record of the added and removed courses
 
 if __name__ == '__main__':
