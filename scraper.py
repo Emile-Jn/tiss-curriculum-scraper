@@ -212,7 +212,7 @@ def scrape_rows(rows, curriculum: pd.DataFrame, section_names: dict=None) -> pd.
         if hyperlinks:  #if there is at least one hyperlink in the row
             first_link = hyperlinks[0].get_attribute('href')
             if 'tiss.tuwien.ac.at/course/courseDetails.xhtml' in first_link:  #if there is at least one tiss hyperlink in the row
-                new_row = get_course(cells)
+                new_row = get_course(cells, first_link)
                 new_row['link'] = first_link  # add the URL of the course
                 if section_names is not None:  # if using section names to extract modules
                     new_row['module'] = section_names[section_names_list[section_number]]
@@ -223,11 +223,12 @@ def scrape_rows(rows, curriculum: pd.DataFrame, section_names: dict=None) -> pd.
     return curriculum
 
 
-def get_course(cells) -> pd.DataFrame:
+def get_course(cells, link) -> pd.DataFrame:
     """
     Extract the course information from the given row cells.
     Args:
         cells: HTML elements containing the 4 grid cells of a course row
+        link: the URL to the course, used as a backup for ECTS if they are missing
 
     Returns:
         a pandas dataframe with a single row containing the course information
@@ -242,8 +243,11 @@ def get_course(cells) -> pd.DataFrame:
     try:
         ects = float(cells[3].text)
     except ValueError:
-        print(f"No valid ECTS for: {course_title}")
-        raise
+        print(f"No valid ECTS for: {course_title}, trying the course's own page...")
+        try:
+            ects = extract_ects(link)
+        except Exception as e:
+            raise ValueError(f"Couldn't find any ECTS info for {course_title}, scraper needs a fix.")
     if ects < 0.5:
         raise ValueError(f"ECTS credits for course {course_title} is less than 0.5, which is unlikely to be correct. Please check the course information in Tiss.")
     # make a new course object
