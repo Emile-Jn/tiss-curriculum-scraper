@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python3
 import pandas as pd
+import re
 # Third-party modules
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -41,6 +42,52 @@ THESIS_MODULE = pd.DataFrame(
 # Logic: if a course appears twice but only the link or the code is different, it should appear only once.
 DUPL_COLS = ['link', 'code']
 #%% functions
+
+def _extract_ects_from_html(html: str, url: str) -> float:
+    """Parse the numeric "Credits" value from a TISS course HTML page."""
+    properties_match = re.search(
+        r"<h2>\s*Properties\s*</h2>\s*<ul[^>]*>(.*?)</ul>",
+        html,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if properties_match is None:
+        raise ValueError(f"Could not find the Properties section at {url}.")
+
+    credits_match = re.search(
+        r"<li>\s*Credits:\s*([0-9]+(?:\.[0-9]+)?)\s*</li>",
+        properties_match.group(1),
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if credits_match is None:
+        raise ValueError(f"Could not find a Credits value in the Properties section at {url}.")
+
+    return float(credits_match.group(1))
+
+
+def extract_ects(url: str) -> float:
+    """
+    Open a TISS course page and return the numeric value from the "Credits" property.
+
+    Args:
+        url: the full URL of the course details page
+
+    Returns:
+        the credits value as a float
+    """
+    driver = initiate_chrome_driver()
+    try:
+        driver.get(url)
+        time.sleep(3)
+        try:
+            driver.find_element("id", "language_en").click()
+            time.sleep(3)
+        except NoSuchElementException:
+            pass
+        html = driver.page_source
+    finally:
+        driver.quit()
+
+    return _extract_ects_from_html(html, url)
 
 def initiate_chrome_driver() -> webdriver.Chrome:
     """
