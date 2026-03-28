@@ -107,6 +107,30 @@ def curriculum_rows(driver) -> list[WebElement]:
     return table.find_elements(By.TAG_NAME, "tr")
 
 
+def switch_semester(driver, option_text: str) -> None:
+    """Switch the selected semester and wait for the table to settle."""
+    current_select = semester_select(driver)
+    if current_select.first_selected_option.text == option_text:
+        wait_for_page_ready(driver)
+        return
+
+    previous_table = WebDriverWait(driver, 15).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "tbody[id$='nodeTable_data']"))
+    )
+    current_select.select_by_visible_text(option_text)
+
+    try:
+        WebDriverWait(driver, 15).until(EC.staleness_of(previous_table))
+    except TimeoutException:
+        LOGGER.debug("Semester %s did not replace the table element before timeout", option_text)
+
+    wait_for_page_ready(driver)
+    WebDriverWait(driver, 15).until(
+        lambda current_driver: semester_select(current_driver).first_selected_option.text
+        == option_text
+    )
+
+
 def parse_course_info(course_key: str) -> tuple[str, str, str]:
     parts = course_key.split()
     if len(parts) < 3:
@@ -260,17 +284,11 @@ def scrape_curriculum_page(
 ) -> tuple[pd.DataFrame, object]:
     curriculum = create_empty_curriculum(use_modules=section_names is not None)
     driver = load_page(driver, url)
-    select = semester_select(driver)
+    option_texts = [option.text for option in semester_select(driver).options]
 
-    for option_text in [option.text for option in select.options]:
-        select = semester_select(driver)
+    for option_text in option_texts:
         LOGGER.info("Processing semester %s", option_text)
-        select.select_by_visible_text(option_text)
-        WebDriverWait(driver, 15).until(
-            lambda current_driver: option_text in [
-                selected.text for selected in semester_select(current_driver).all_selected_options
-            ]
-        )
+        switch_semester(driver, option_text)
         rows = curriculum_rows(driver)
         curriculum = scrape_rows(rows, curriculum, section_names)
 
