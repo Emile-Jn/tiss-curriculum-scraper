@@ -1,12 +1,30 @@
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
 [project]
 name = "tiss-curriculum-scraper"
 version = "0.1.0"
-description = "Add your description here"
+description = "Scrape the TISS Data Science curriculum into a TSV snapshot."
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "chromedriver-autoinstaller>=0.6.4",
     "pandas>=3.0.0",
-    "pytest>=9.0.2",
     "selenium>=4.40.0",
     "tqdm>=4.67.3",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[project.scripts]
+tiss-curriculum-scraper = "tiss_curriculum_scraper.cli:main"
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

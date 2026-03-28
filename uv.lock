@@ -355,23 +355,28 @@ wheels = [
 [[package]]
 name = "tiss-curriculum-scraper"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "chromedriver-autoinstaller" },
     { name = "pandas" },
-    { name = "pytest" },
     { name = "selenium" },
     { name = "tqdm" },
+]
+
+[package.optional-dependencies]
+dev = [
+    { name = "pytest" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "chromedriver-autoinstaller", specifier = ">=0.6.4" },
     { name = "pandas", specifier = ">=3.0.0" },
-    { name = "pytest", specifier = ">=9.0.2" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.2" },
     { name = "selenium", specifier = ">=4.40.0" },
     { name = "tqdm", specifier = ">=4.67.3" },
 ]
+provides-extras = ["dev"]
 
 [[package]]
 name = "tqdm"
