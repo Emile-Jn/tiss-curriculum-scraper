@@ -192,7 +192,11 @@ def get_course(cells) -> pd.DataFrame:
     # split the course key into the course code, type, and semester
     course_info = course_key.split(" ")
     # get the number of ECTS credits from the last cell in the row
-    ects = float(cells[3].text)
+    try:
+        ects = float(cells[3].text)
+    except ValueError:
+        print(f"No valid ECTS for: {course_title}")
+        raise
     if ects < 0.5:
         raise ValueError(f"ECTS credits for course {course_title} is less than 0.5, which is unlikely to be correct. Please check the course information in Tiss.")
     # make a new course object
