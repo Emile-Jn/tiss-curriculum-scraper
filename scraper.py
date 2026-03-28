@@ -246,6 +246,8 @@ def get_course(cells, link) -> pd.DataFrame:
         print(f"No valid ECTS for: {course_title}, trying the course's own page...")
         try:
             ects = extract_ects(link)
+            if isinstance(ects, float) and 0 < ects < 30:
+                print(f"ECTS value ({ects}) successfully extracted from course page.")
         except Exception as e:
             raise ValueError(f"Couldn't find any ECTS info for {course_title}, scraper needs a fix.")
     if ects < 0.5:
