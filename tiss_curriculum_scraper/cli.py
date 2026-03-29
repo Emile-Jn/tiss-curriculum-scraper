@@ -6,13 +6,26 @@ import pandas as pd
 
 from .browser import initiate_chrome_driver
 from .constants import CURRICULUM_PATH, DUPL_COLS, LOGS_PATH
-from .formatting import modified_courses
+from .formatting import modified_courses, normalize_output_module_names
 from .scraping import clean_curriculum, get_data_science_curriculum, get_tsk_courses
 from .storage import load_curriculum, log_changes, save_curriculum
 
 
 def configure_logging() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+
+
+def merge_curricula(
+    previous_curriculum: pd.DataFrame, current_curriculum: pd.DataFrame
+) -> pd.DataFrame:
+    """Merge old and new snapshots while preserving the latest active state per course."""
+    identity_columns = current_curriculum.columns.difference(
+        DUPL_COLS + ["active", "full_module_name"]
+    )
+    all_courses = pd.concat([previous_curriculum, current_curriculum], ignore_index=True)
+    return all_courses.drop_duplicates(subset=identity_columns, keep="last").reset_index(
+        drop=True
+    )
 
 
 def extract_and_save_all_courses() -> pd.DataFrame:
@@ -35,13 +48,10 @@ def extract_and_save_all_courses() -> pd.DataFrame:
 
     current_curriculum = pd.concat([curriculum, tsk_courses], ignore_index=True)
     current_curriculum = clean_curriculum(current_curriculum, DUPL_COLS)
+    current_curriculum = normalize_output_module_names(current_curriculum)
     current_curriculum["active"] = True
 
-    all_courses = pd.concat([previous_curriculum, current_curriculum], ignore_index=True)
-    all_courses = all_courses.drop_duplicates(
-        subset=current_curriculum.columns.difference(DUPL_COLS + ["active"]),
-        keep="last",
-    ).reset_index(drop=True)
+    all_courses = merge_curricula(previous_curriculum, current_curriculum)
     save_curriculum(all_courses, CURRICULUM_PATH)
     return all_courses
 

@@ -20,9 +20,28 @@ SECTION_NAMES = {
     "Modul BDHPC/EX - Big Data and High Performance Computing - Extension": "BDHPC/EX",
     "Modul VAST/CO - Visual Analytics and Semantic Technologies - Core": "VAST/CO",
     "Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension": "VAST/EX",
-    "Pruefungsfach Freie Wahlfaecher und Transferable Skills": "Free Electives",
-    "Prüfungsfach Freie Wahlfächer und Transferable Skills": "Free Electives",
-    "Module Free Electives and Transferable Skills": "Free Electives",
+    "Pruefungsfach Freie Wahlfaecher und Transferable Skills": "TSK",
+    "Prüfungsfach Freie Wahlfächer und Transferable Skills": "TSK",
+    "Module Free Electives and Transferable Skills": "TSK",
+}
+
+OUTPUT_FULL_MODULE_NAMES = {
+    "Foundations": "Prüfungsfach Data Science - Foundations",
+    "DSA": "Prüfungsfach Domain-Specific Aspects of Data Science",
+    "FDS/CO": "Modul FDS/CO - Fundamentals of Data Science - Core",
+    "FDS/EX": "Modul FDS/EX - Fundamentals of Data Science - Extension",
+    "MLS/CO": "Modul MLS/CO - Machine Learning and Statistics - Core",
+    "MLS/EX": "Modul MLS/EX - Machine Learning and Statistics - Extension",
+    "BDHPC/CO": "Modul BDHPC/CO - Big Data and High Performance Computing - Core",
+    "BDHPC/EX": "Modul BDHPC/EX - Big Data and High Performance Computing - Extension",
+    "VAST/CO": "Modul VAST/CO - Visual Analytics and Semantic Technologies - Core",
+    "VAST/EX": "Modul VAST/EX - Visual Analytics and Semantic Technologies - Extension",
+    "TSK": "Prüfungsfach Freie Wahlfächer und Transferable Skills",
+}
+
+MAIN_CURRICULUM_STOP_HEADINGS = {
+    "Pruefungsfach Freie Wahlfaecher und Transferable Skills",
+    "Prüfungsfach Freie Wahlfächer und Transferable Skills",
 }
 
 THESIS_MODULE = pd.DataFrame(

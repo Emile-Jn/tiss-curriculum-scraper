@@ -1,5 +1,7 @@
 import pandas as pd
 
+from .constants import OUTPUT_FULL_MODULE_NAMES
+
 
 def remove_year_info(semester: str) -> str:
     """Normalize semester strings to W, S, or W and S."""
@@ -27,6 +29,20 @@ def remove_canceled_courses(dataframe: pd.DataFrame) -> pd.DataFrame:
     ].copy()
 
 
+def normalize_output_module_names(dataframe: pd.DataFrame) -> pd.DataFrame:
+    """
+    Apply the project-specific final full_module_name values used by the requirement system.
+    """
+    result = dataframe.copy()
+    if "module" not in result.columns or "full_module_name" not in result.columns:
+        return result
+
+    result["full_module_name"] = result["module"].map(OUTPUT_FULL_MODULE_NAMES).fillna(
+        result["full_module_name"]
+    )
+    return result
+
+
 def modified_courses(
     old_df: pd.DataFrame, new_df: pd.DataFrame
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -36,7 +52,7 @@ def modified_courses(
     if "active" not in old_df.columns or "active" not in new_df.columns:
         raise ValueError("Both old_df and new_df must contain an 'active' column")
 
-    id_cols_drop = ["link", "active"]
+    id_cols_drop = ["link", "active", "full_module_name"]
 
     def build_id_series(dataframe: pd.DataFrame) -> pd.Series:
         base = dataframe.drop(columns=id_cols_drop, errors="ignore")

@@ -17,7 +17,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 from .browser import initiate_chrome_driver
-from .constants import DATA_SCIENCE_URL, SECTION_NAMES, THESIS_MODULE, TSK_URL
+from .constants import (
+    DATA_SCIENCE_URL,
+    MAIN_CURRICULUM_STOP_HEADINGS,
+    SECTION_NAMES,
+    THESIS_MODULE,
+    TSK_URL,
+)
 from .formatting import merge_years, remove_canceled_courses
 
 LOGGER = logging.getLogger(__name__)
@@ -218,6 +224,7 @@ def scrape_rows(
         if section_names
         else {}
     )
+    normalized_stop_headings = {normalize_text(name) for name in MAIN_CURRICULUM_STOP_HEADINGS}
     current_module_name: str | None = None
     current_module_label: str | None = None
 
@@ -241,6 +248,8 @@ def scrape_rows(
             continue
 
         text = normalize_text(cells[0].text.strip())
+        if section_names is not None and text in normalized_stop_headings:
+            break
         if section_names is not None and text in normalized_sections:
             current_module_name, current_module_label = normalized_sections[text]
             row_index += 1
@@ -305,7 +314,7 @@ def get_tsk_courses(driver) -> tuple[pd.DataFrame, object]:
     LOGGER.info("Scraping the TSK courses")
     tsk_courses, driver = scrape_curriculum_page(TSK_URL, driver)
     tsk_courses["module"] = "TSK"
-    tsk_courses["full_module_name"] = "Modul Freie Wahlfächer und Transferable Skills"
+    tsk_courses["full_module_name"] = "Prüfungsfach Freie Wahlfächer und Transferable Skills"
     tsk_courses = tsk_courses[MODULE_COLUMNS]
     return tsk_courses, driver
 

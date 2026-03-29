@@ -4,6 +4,7 @@ import pytest
 from tiss_curriculum_scraper.formatting import (
     merge_years,
     modified_courses,
+    normalize_output_module_names,
     remove_canceled_courses,
     remove_year_info,
 )
@@ -130,3 +131,75 @@ def test_modified_courses_rejects_orphan_inactive_rows():
 
     with pytest.raises(ValueError, match="inactive courses in old_df"):
         modified_courses(old_df, new_df)
+
+
+def test_modified_courses_ignores_full_module_name_differences():
+    old_df = pd.DataFrame(
+        [
+            {
+                "module": "Foundations",
+                "title": "Machine Learning",
+                "code": "184.702",
+                "type": "VU",
+                "semester": "S",
+                "credits": 4.5,
+                "link": "https://example.com/old",
+                "full_module_name": "Prüfungsfach Data Science - Foundations",
+                "active": False,
+            }
+        ]
+    )
+    new_df = pd.DataFrame(
+        [
+            {
+                "module": "Foundations",
+                "title": "Machine Learning",
+                "code": "184.702",
+                "type": "VU",
+                "semester": "S",
+                "credits": 4.5,
+                "link": "https://example.com/new",
+                "full_module_name": "Modul MLS/FD - Machine Learning and Statistics - Foundations",
+                "active": True,
+            }
+        ]
+    )
+
+    added, removed = modified_courses(old_df, new_df)
+
+    assert added.empty
+    assert removed.empty
+
+
+def test_normalize_output_module_names_applies_requirement_system_labels():
+    dataframe = pd.DataFrame(
+        [
+            {
+                "module": "FDS/CO",
+                "full_module_name": "Modul FDS/CO - Fundamentals of Data Science - Core",
+            },
+            {
+                "module": "MLS/EX",
+                "full_module_name": "Modul MLS/EX - Machine Learning and Statistics - Extension",
+            },
+            {
+                "module": "TSK",
+                "full_module_name": "Module Free Electives and Transferable Skills",
+            },
+            {
+                "module": "Thesis",
+                "full_module_name": None,
+            },
+        ]
+    )
+
+    result = normalize_output_module_names(dataframe)
+
+    assert result["full_module_name"].iloc[0] == "Modul FDS/CO - Fundamentals of Data Science - Core"
+    assert result["full_module_name"].iloc[1] == (
+        "Modul MLS/EX - Machine Learning and Statistics - Extension"
+    )
+    assert result["full_module_name"].iloc[2] == (
+        "Prüfungsfach Freie Wahlfächer und Transferable Skills"
+    )
+    assert pd.isna(result["full_module_name"].iloc[3])
