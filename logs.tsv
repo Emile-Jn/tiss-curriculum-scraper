@@ -232,3 +232,336 @@ date	added or removed	module	title	code	type	semester	credits
 2026-07-15	added	TSK	Gendered & Inclusive Innovations	034.029	VU	W	2.0
 2026-08-12	added	TSK	Building for people | International Study Day: The Mausoleum of Theoderic – Construction. Society. Memoria.	251.852	VO	W	2.0
 2026-08-12	added	TSK	Introduction to scientific work – building archaeology	251.865	VU	W	2.0
+2026-08-13	added	FDS/EX	Systems and Applications Security	192.112	VU	S	6.0
+2026-08-13	added	MLS/EX	AKNUM Reinforcement Learning	194.163	VU	S	6.0
+2026-08-13	added	MLS/EX	Allgemeine Regressionsmodelle	105.725	VU	S	5.0
+2026-08-13	added	MLS/EX	Generative AI abgesagt	194.154	VU	W	6.0
+2026-08-13	added	MLS/EX	Sicherheit, Privacy und Erklärbarkeit in Maschinellem Lernen	194.055	VU	S	3.0
+2026-08-13	added	BDHPC/EX	Analysis 2 für Informatik	104.268	UE	S	4.5
+2026-08-13	added	BDHPC/EX	Nichtlineare Optimierung	105.147	VO	W	3.0
+2026-08-13	added	BDHPC/EX	Nichtlineare Optimierung	105.652	UE	W	2.0
+2026-08-13	added	VAST/EX	Graph Data Engineering and Management abgesagt	192.176	VU	S	3.0
+2026-08-13	added	Foundations	Datenbanksysteme Vertiefung	184.780	VU	S	6.0
+2026-08-13	added	Foundations	Einführung in Semantic Systems	188.399	VU	W	3.0
+2026-08-13	added	DSA	Fachspezifische Lehrveranstaltungen in Data Science	194.068	VU	S	3.0
+2026-08-13	added	DSA	Fachspezifische Lehrveranstaltungen in Data Science	194.068	VU	W	3.0
+2026-08-13	added	MLS/CO	Statistische Simulation und computerintensive Methoden	107.330	VU	W	3.0
+2026-08-13	added	MLS/EX	Bayes-Statistik	105.173	VU	W	5.0
+2026-08-13	added	MLS/EX	Multivariate Statistik	107.388	VO	W	4.5
+2026-08-13	added	MLS/EX	Multivariate Statistik	107.391	UE	W	1.5
+2026-08-13	added	MLS/EX	Selbstorganisierende Systeme	188.413	VU	W	4.5
+2026-08-13	added	BDHPC/EX	Advanced Multiprocessor Programming abgesagt	191.022	VU	W	6.0
+2026-08-13	added	VAST/EX	Visualisierung	193.166	VU	W	6.0
+2026-08-13	added	TSK	Bauen für Menschen :: historisch.smart	251.843	VO	S	2.0
+2026-08-13	added	TSK	Technik für Menschen 2040	194.082	VU	S	3.0
+2026-08-13	added	TSK	Technologie und Ethik	034.012	VU	W	3.0
+2026-08-13	added	TSK	voice.of.diversity - faire Job-Chancen ohne Vorurteile	064.002	UE	W	1.0
+2026-08-13	added	TSK	RadTUour - cycleFIT - Qualitätsanalyse der Radrouten zur TU Wien	280.B71	UE	S	2.0
+2026-08-13	added	TSK	Zwischen Karriere und Barriere	187.250	VO	W	3.0
+2026-08-13	added	TSK	Frauen in der Mathematik	101.A73	VU	S	3.0
+2026-08-13	added	TSK	Frauen in der Mathematik	101.A73	VU	W	3.0
+2026-08-13	added	TSK	Syntaxorientiertes Japanisch II	063.001	VO	S	3.0
+2026-08-13	added	TSK	Syntaxorientiertes Japanisch II	063.002	UE	S	3.0
+2026-08-13	added	TSK	Technisches Chinesisch IV abgesagt	064.038	VU	S	3.0
+2026-08-13	added	TSK	IT Projekte für Jugendliche	192.058	UE	S	1.5
+2026-08-13	added	TSK	Coaching als Führungsinstrument 1	188.383	SE	S	3.0
+2026-08-13	added	TSK	Mediative Kompetenz in der Bauwirtschaft 1 – Einführung in die interessensbasierte Kommunikation	242.026	SE	W	3.0
+2026-08-13	added	TSK	Mediative Kompetenz in der Bauwirtschaft 2 - Konflikte mit mediativen Kompetenzen gestalten	242.027	SE	S	3.0
+2026-08-13	added	TSK	Gruppendynamik	260.138	SE	S	3.0
+2026-08-13	added	TSK	Soziale Kompetenz	330.139	SE	W	3.0
+2026-08-13	added	TSK	Karriereplanung und Selbstmanagement	330.140	SE	S	2.0
+2026-08-13	added	TSK	Soft Skills für Techniker/innen Wissenschaftskommunikation und Co Creation	299.001	VU	S	3.0
+2026-08-13	added	TSK	Soft Skills für Techniker/innen Wissenschaftskommunikation und Co Creation	299.001	VU	W	3.0
+2026-08-13	added	TSK	Multidisziplinäre Planung	210.001	UE	S	2.0
+2026-08-13	added	TSK	IT-Projekte für Jugendliche	192.055	PR	S	3.0
+2026-08-13	added	TSK	Inspirational Leadership im 21. Jahrhundert	330.260	VU	S	3.0
+2026-08-13	added	TSK	Inspirational Leadership im 21. Jahrhundert	330.260	VU	W	3.0
+2026-08-13	added	TSK	Soziale Kompetenz für studentische Mitarbeiter_innen	060.002	SE	S	2.0
+2026-08-13	added	TSK	Transferable Skill - Fachübergreifende Kommunikation in der Technik	330.301	UE	S	4.5
+2026-08-13	added	TSK	Transferable Skill - Fachübergreifende Kommunikation in der Technik	330.301	UE	W	4.5
+2026-08-13	added	TSK	Begleitlehrveranstaltung der Mentor_innen der TU Wien abgesagt	064.012	SE	S	3.0
+2026-08-13	added	TSK	Achtsamkeit und Meditation II	064.013	VU	S	3.0
+2026-08-13	added	TSK	Mentale Resilienz im Studienalltag	251.178	UE	S	2.0
+2026-08-13	added	TSK	Wissenschaft und Gesellschaft im Dialog: Gemeinsam eine nachhaltige Zukunft gestalten abgesagt	040.011	VU	W	5.0
+2026-08-13	added	TSK	Mitmachlabor	163.182	VU	S	2.0
+2026-08-13	added	TSK	Mitmachlabor	163.182	VU	W	2.0
+2026-08-13	added	TSK	Präsentations- und Verhandlungstechnik	352.031	VU	S	3.0
+2026-08-13	added	TSK	Präsentations- und Verhandlungstechnik	352.031	VU	W	3.0
+2026-08-13	added	TSK	Rhetorik, Körpersprache und Argumentationstraining	352.490	VU	S	3.0
+2026-08-13	added	TSK	Rhetorik, Körpersprache und Argumentationstraining	352.490	VU	W	3.0
+2026-08-13	added	TSK	Präsentationstechnik I (für BI)	242.016	SE	S	3.0
+2026-08-13	added	TSK	Präsentationstechnik I (für BI)	242.016	SE	W	3.0
+2026-08-13	added	TSK	Präsentationstechnik II (für BI)	242.017	SE	S	3.0
+2026-08-13	added	TSK	Präsentationstechnik II (für BI)	242.017	SE	W	3.0
+2026-08-13	added	TSK	Kommunikationstechnik	184.004	SE	S	1.5
+2026-08-13	added	TSK	Data Literacy: Grundlagen der Visualisierung von Daten und Informationen	040.009	VU	W	3.0
+2026-08-13	added	TSK	Digitale Kompetenzen für Projekte im Student Support abgesagt	064.009	UE	W	3.0
+2026-08-13	added	TSK	Rechtsfragen des Umweltschutzes	265.045	VO	S	3.0
+2026-08-13	added	TSK	Organisationslaboratorium	330.136	UE	S	4.0
+2026-08-13	added	TSK	Vertrags- und Haftungsrecht	265.076	VU	S	3.0
+2026-08-13	added	TSK	Innovationslabor - Smart Innovation	330.250	VU	S	4.0
+2026-08-13	added	TSK	Wie erfindet man einen Roboter - Produktentwicklung aus der Nutzerperspektive	376.075	VU	S	5.0
+2026-08-13	added	TSK	Wie erfindet man einen Roboter - Produktentwicklung aus der Nutzerperspektive	376.075	VU	W	5.0
+2026-08-13	added	TSK	E-Tutoring, Moderation von E-Learning	015.087	VU	W	3.0
+2026-08-13	added	TSK	Relativitaetstheorie - allgemeinverstaendlich	136.009	VO	S	3.0
+2026-08-13	added	TSK	Barrierefreies Bauen	259.345	VU	S	1.0
+2026-08-13	added	TSK	Barrierefreies Bauen	259.346	UE	S	1.0
+2026-08-13	added	TSK	Sustainability Challenge, Interuniversitäre Lehrveranstaltung	253.179	VO	W	4.0
+2026-08-13	added	TSK	Information Literacy: Publizieren und Verbreiten	040.004	VU	W	3.0
+2026-08-13	added	TSK	Erwachsenenbildung und Lebenslanges Lernen	015.118	VU	S	3.0
+2026-08-13	added	TSK	talente.programm der TU Wien (Bachelor) abgesagt	064.001	VU	S	3.0
+2026-08-13	added	TSK	talente.programm der TU Wien (Master und Doktoratsstudien) abgesagt	064.005	VU	S	3.0
+2026-08-13	added	TSK	Fachliches Mentoring - Mathematik (FaMe)	060.017	SE	S	2.0
+2026-08-13	added	TSK	Fachliches Mentoring - Mathematik (FaMe)	060.017	SE	W	2.0
+2026-08-13	added	TSK	Information Literacy: Recherchieren, Zitieren, Schreiben für Bachelor- und Masterarbeiten	040.003	SE	W	2.0
+2026-08-13	added	TSK	Einführung in das wissenschaftliche Arbeiten – Bauforschung	251.865	VU	S	2.0
+2026-08-13	added	TSK	Einführung in das wissenschaftliche Arbeiten - Bauforschung	251.865	VU	W	2.0
+2026-08-13	added	TSK	Data Literacy: 3D-Visualisierung in VR	040.007	SE	S	3.0
+2026-08-13	added	TSK	Ringvorlesung Ökologie - Aktuelle Forschung Im Bereich Ökologie	259.646	VO	S	2.0
+2026-08-13	added	TSK	Einführung in das Forschungsdatenmanagement	058.005	VU	W	3.0
+2026-08-13	added	TSK	Didaktische Kompetenz für studentische Mitarbeiter_innen	060.031	VU	S	1.0
+2026-08-13	added	TSK	Folgen des technischen Fortschritts - Einführung in die Theorie und Praxis der Technikfolgenabschätzung (TA)	064.050	VO	W	2.0
+2026-08-13	added	TSK	Technik für Menschen	061.003	VU	S	3.0
+2026-08-13	added	TSK	Technik für Menschen	061.003	VU	W	3.0
+2026-08-13	added	TSK	Bauen für Menschen	207.011	VO	W	2.0
+2026-08-13	added	TSK	Bauen für Menschen | Internationaler Studientag "Theoderichmausoleum" – Konstruktion. Gesellschaft. Memoria	251.852	VO	W	2.0
+2026-08-13	added	TSK	Chemie und Gesellschaft	163.171	VO	S	3.0
+2026-08-13	added	TSK	Diversity Skills (Deutsch)	064.029	UE	S	1.0
+2026-08-13	added	TSK	Diversity Skills (Deutsch)	064.029	UE	W	1.0
+2026-08-13	added	TSK	Feministische Technikforschung	034.016	VU	S	3.0
+2026-08-13	added	TSK	Technologie und Ethik	034.012	VU	S	3.0
+2026-08-13	added	TSK	voice.of.diversity - faire Job-Chancen ohne Vorurteile abgesagt	064.002	UE	W	1.0
+2026-08-13	added	TSK	Nachhaltigkeit & Diversität in Forschung und Entwicklung	034.021	SE	S	2.0
+2026-08-13	added	TSK	Who cares? Soziale Verantwortung in Wissenschaft und Technologieentwicklung	034.025	VO	W	3.0
+2026-08-13	added	TSK	Who cares? Soziale Verantwortung in Wissenschaft und Technologieentwicklung	034.026	UE	S	3.0
+2026-08-13	added	TSK	Männlichkeiten und Technologien - Ansätze, Theorien und Konzepte zur Vertiefung	034.027	UE	S	3.0
+2026-08-13	added	TSK	Zwischen Karriere und Barriere abgesagt	187.250	VO	W	3.0
+2026-08-13	added	TSK	Männlichkeiten und Technologien: Relationen, Ambivalenzen, Implikationen	034.011	VO	W	3.0
+2026-08-13	added	TSK	Einführung ins Diversitätsmanagement	034.015	VU	S	3.0
+2026-08-13	added	TSK	femTUconnect – Feministische Netzwerke	034.028	SE	S	3.0
+2026-08-13	added	TSK	femTUconnect – Feministische Netzwerke	034.028	SE	W	3.0
+2026-08-13	added	TSK	Techn. Französisch I	064.014	VU	W	3.0
+2026-08-13	added	TSK	Techn. Französisch II	064.035	VU	S	3.0
+2026-08-13	added	TSK	Technisches Spanisch I	064.015	VU	W	3.0
+2026-08-13	added	TSK	Technisches Spanisch II	064.036	VU	S	3.0
+2026-08-13	added	TSK	Syntaxorientiertes Japanisch I	057.028	VO	W	6.0
+2026-08-13	added	TSK	Syntaxorientiertes Japanisch I	057.030	UE	W	6.0
+2026-08-13	added	TSK	Technisches Chinesisch III	064.018	VU	W	3.0
+2026-08-13	added	TSK	Technisches Chinesisch IV	064.038	VU	S	3.0
+2026-08-13	added	TSK	Technisches Italienisch I	064.024	VU	W	3.0
+2026-08-13	added	TSK	Technisches Italienisch II	064.039	VU	S	3.0
+2026-08-13	added	TSK	Technisches Schwedisch 1	064.025	VU	S	3.0
+2026-08-13	added	TSK	Technisches Schwedisch 1	064.025	VU	W	3.0
+2026-08-13	added	TSK	Technisches Schwedisch 2	064.040	VU	S	3.0
+2026-08-13	added	TSK	Technisches Schwedisch 2	064.040	VU	W	3.0
+2026-08-13	added	TSK	Fachgebärdenentwicklung	064.007	VU	S	3.0
+2026-08-13	added	TSK	Fachgebärdenentwicklung	064.007	VU	W	3.0
+2026-08-13	added	TSK	Einführung in die Österreichische Gebärdensprache und Gehörlosenkultur	064.010	VU	S	1.0
+2026-08-13	added	TSK	Einführung in die Österreichische Gebärdensprache und Gehörlosenkultur	064.010	VU	W	1.0
+2026-08-13	added	TSK	Begleitveranstaltung: Unterstützung gehörloser und schwerhöriger Studierender	064.008	UE	S	3.0
+2026-08-13	added	TSK	Begleitveranstaltung: Unterstützung gehörloser und schwerhöriger Studierender	064.008	UE	W	3.0
+2026-08-13	added	TSK	IT Projekte für Jugendliche	192.058	UE	W	1.5
+2026-08-13	added	TSK	Coaching als Führungsinstrument 1	188.383	SE	W	3.0
+2026-08-13	added	TSK	Basic Skills im Umgang mit Organisationen – Grundkenntnisse in Management und Organisationspsychologie	260.142	VU	W	3.0
+2026-08-13	added	TSK	Softskills für TechnikerInnen	181.208	VU	S	3.0
+2026-08-13	added	TSK	Softskills für TechnikerInnen	181.208	VU	W	3.0
+2026-08-13	added	TSK	Coaching als Führungsinstrument 2	188.472	SE	W	3.0
+2026-08-13	added	TSK	Multidisziplinäre Planung	210.001	UE	W	2.0
+2026-08-13	added	TSK	IT-Projekte für Jugendliche	192.055	PR	W	3.0
+2026-08-13	added	TSK	Selbstcoaching	064.046	VU	S	2.0
+2026-08-13	added	TSK	Selbstcoaching	064.054	VU	W	2.0
+2026-08-13	added	TSK	Ressourcenmanagement und Resilienz	064.049	VU	W	2.0
+2026-08-13	added	TSK	TU.impact – das Female Empowerment Programm der TU Wien	064.003	SE	S	3.0
+2026-08-13	added	TSK	TU.impact – das Female Empowerment Programm der TU Wien	064.003	SE	W	3.0
+2026-08-13	added	TSK	Begleitlehrveranstaltung der Mentor_innen der TU Wien	064.012	SE	W	3.0
+2026-08-13	added	TSK	Begleitlehrveranstaltung der Mentor_innen der TU Wien - Kurzprogramm	064.023	SE	S	1.0
+2026-08-13	added	TSK	Begleitlehrveranstaltung der Mentor_innen der TU Wien - Kurzprogramm	064.023	SE	W	1.0
+2026-08-13	added	TSK	Achtsamkeit und Meditation I	064.004	VU	W	3.0
+2026-08-13	added	TSK	Einführung in Management und Leadership für Techniker_innen	064.032	VU	S	3.0
+2026-08-13	added	TSK	Deep Dives: Management und Leadership für Techniker_innen	064.051	VU	W	3.0
+2026-08-13	added	TSK	Kommunikation und Rhetorik	181.200	SE	S	3.0
+2026-08-13	added	TSK	Kommunikation und Rhetorik	181.200	SE	W	3.0
+2026-08-13	added	TSK	Technik darstellen - Darstellungstechniken in audiovisuellen Medien	064.026	VU	S	2.0
+2026-08-13	added	TSK	Technik darstellen - Darstellungstechniken in audiovisuellen Medien	064.026	VU	W	2.0
+2026-08-13	added	TSK	Kommunikationstechnik	184.004	SE	W	1.5
+2026-08-13	added	TSK	Technologieverwertung	015.082	VO	S	1.5
+2026-08-13	added	TSK	Technologieverwertung	015.082	VO	W	1.5
+2026-08-13	added	TSK	Unternehmerisches Denken und Handeln in innovativen Unternehmen und High-tech Start-ups	064.031	VO	S	3.0
+2026-08-13	added	TSK	Ökologie und nachhaltige Entwicklung	164.225	VO	S	3.0
+2026-08-13	added	TSK	Privates Wirtschaftsrecht	265.003	VO	W	3.0
+2026-08-13	added	TSK	Gewerblicher Rechtsschutz für Techniker	360.012	VO	S	1.5
+2026-08-13	added	TSK	Vertrags- und Haftungsrecht	265.076	VU	W	3.0
+2026-08-13	added	TSK	Ökologische u. gesellschaftliche Aspekte d. Chemie	166.127	VO	S	3.0
+2026-08-13	added	TSK	Wissenschaft verständlich kommunizieren	064.027	VU	S	4.5
+2026-08-13	added	TSK	Wissenschaft verständlich kommunizieren	064.027	VU	W	4.5
+2026-08-13	added	TSK	Grundlagen wissenschaftlichen Arbeitens	064.041	VU	S	3.0
+2026-08-13	added	TSK	Grundlagen wissenschaftlichen Arbeitens	064.041	VU	W	3.0
+2026-08-13	added	TSK	talente.programm der TU Wien (Bachelor)	064.001	VU	W	3.0
+2026-08-13	added	TSK	talente.programm der TU Wien (Master und Doktoratsstudien)	064.005	VU	W	3.0
+2026-08-13	added	TSK	Einführung in das wissenschaftliche Arbeiten – Bauforschung	251.865	VU	W	2.0
+2026-08-13	added	TSK	Data Literacy: 3D-Visualisierung in VR	040.007	SE	W	3.0
+2026-08-13	added	TSK	Ringvorlesung Ökologie - Aktuelle Forschung Im Bereich Ökologie	259.646	VO	W	2.0
+2026-08-13	added	TSK	Kreatives und nachhaltiges Produkt-, Service- und Prozess-Engineering	064.043	VU	S	3.0
+2026-08-13	added	TSK	TU Botschafter_in: Schüler_innenorientierung an der TU Wien	064.056	SE	S	3.0
+2026-08-13	added	TSK	TU Botschafter_in: Schüler_innenorientierung an der TU Wien	064.056	SE	W	3.0
+2026-08-13	removed	FDS/EX	System and Application Security	192.112	VU	S	6.0
+2026-08-13	removed	MLS/EX	Reinforcement Learning	194.163	VU	S	6.0
+2026-08-13	removed	MLS/EX	General Regression Models	105.725	VU	S	5.0
+2026-08-13	removed	MLS/EX	Security, Privacy and Explainability in Machine Learning	194.055	VU	S	3.0
+2026-08-13	removed	BDHPC/EX	Analysis 2	104.268	UE	S	4.5
+2026-08-13	removed	BDHPC/EX	Nonlinear Programming	105.147	VO	W	3.0
+2026-08-13	removed	BDHPC/EX	Nonlinear Programming	105.652	UE	W	2.0
+2026-08-13	removed	Foundations	Advanced Database Systems	184.780	VU	S	6.0
+2026-08-13	removed	Foundations	Introduction to Semantic Systems	188.399	VU	W	3.0
+2026-08-13	removed	DSA	Domain-Specific Lectures in Data Science	194.068	VU	S	3.0
+2026-08-13	removed	DSA	Domain-Specific Lectures in Data Science	194.068	VU	W	3.0
+2026-08-13	removed	MLS/CO	Statistical Simulation and Computerintensive Methods	107.330	VU	W	3.0
+2026-08-13	removed	MLS/EX	Bayesian Statistics	105.173	VU	W	5.0
+2026-08-13	removed	MLS/EX	Multivariate Statistics	107.388	VO	W	4.5
+2026-08-13	removed	MLS/EX	Multivariate Statistics	107.391	UE	W	1.5
+2026-08-13	removed	MLS/EX	Self-Organizing Systems	188.413	VU	W	4.5
+2026-08-13	removed	VAST/EX	Visualization	193.166	VU	W	6.0
+2026-08-13	removed	TSK	Building for people :: historic.smart	251.843	VO	S	2.0
+2026-08-13	removed	TSK	Technology for People 2040	194.082	VU	S	3.0
+2026-08-13	removed	TSK	Technology and Ethics	034.012	VU	W	3.0
+2026-08-13	removed	TSK	voice.of.diversity - fair job opportunities without prejudice	064.002	UE	W	1.0
+2026-08-13	removed	TSK	RadTUour - cycleFIT- Quality Assessment of Cycling Routes to TU Wien	280.B71	UE	S	2.0
+2026-08-13	removed	TSK	Developing a career - coping with obstacles	187.250	VO	W	3.0
+2026-08-13	removed	TSK	Women in mathematics	101.A73	VU	S	3.0
+2026-08-13	removed	TSK	Women in mathematics	101.A73	VU	W	3.0
+2026-08-13	removed	TSK	Syntax-based Japanese II	063.001	VO	S	3.0
+2026-08-13	removed	TSK	Syntax-based Japanese II	063.002	UE	S	3.0
+2026-08-13	removed	TSK	IT Projects for Youth	192.058	UE	S	1.5
+2026-08-13	removed	TSK	Leadership Competency Coaching 1	188.383	SE	S	3.0
+2026-08-13	removed	TSK	Mediativ competence in Civil Engineering Practice 1	242.026	SE	W	3.0
+2026-08-13	removed	TSK	Mediativ competence in Civil Engineering Practice 2	242.027	SE	S	3.0
+2026-08-13	removed	TSK	Group Dynamics	260.138	SE	S	3.0
+2026-08-13	removed	TSK	Social Skills	330.139	SE	W	3.0
+2026-08-13	removed	TSK	Career Planning and Self-Management	330.140	SE	S	2.0
+2026-08-13	removed	TSK	Softskills for technicians communication of science and Co-creation	299.001	VU	S	3.0
+2026-08-13	removed	TSK	Softskills for technicians communication of science and Co-creation	299.001	VU	W	3.0
+2026-08-13	removed	TSK	Multidisciplinary Planning	210.001	UE	S	2.0
+2026-08-13	removed	TSK	IT Projects for Youth	192.055	PR	S	3.0
+2026-08-13	removed	TSK	Inspirational Leadership in the 21st century	330.260	VU	S	3.0
+2026-08-13	removed	TSK	Inspirational Leadership in the 21st century	330.260	VU	W	3.0
+2026-08-13	removed	TSK	Social skills for tutors	060.002	SE	S	2.0
+2026-08-13	removed	TSK	Transferable Skill - Multidisciplinary Communication in Engineering Projects	330.301	UE	S	4.5
+2026-08-13	removed	TSK	Transferable Skill - Multidisciplinary Communication in Engineering Projects	330.301	UE	W	4.5
+2026-08-13	removed	TSK	Awareness and meditation II	064.013	VU	S	3.0
+2026-08-13	removed	TSK	Mental resilience for students	251.178	UE	S	2.0
+2026-08-13	removed	TSK	Hands-on laboratory	163.182	VU	S	2.0
+2026-08-13	removed	TSK	Hands-on-Laboratory	163.182	VU	W	2.0
+2026-08-13	removed	TSK	Getting agreement in negotiations	352.031	VU	S	3.0
+2026-08-13	removed	TSK	Getting agreement in negotiations	352.031	VU	W	3.0
+2026-08-13	removed	TSK	Rhetoric body language and training in assertiveness and argumentation	352.490	VU	S	3.0
+2026-08-13	removed	TSK	Rhetoric body language and training in assertiveness and argumentation	352.490	VU	W	3.0
+2026-08-13	removed	TSK	Presentations I (for Civil Engineers)	242.016	SE	S	3.0
+2026-08-13	removed	TSK	Presentations I (for Civil Engineers)	242.016	SE	W	3.0
+2026-08-13	removed	TSK	Presentations II (for Civil Engineers)	242.017	SE	S	3.0
+2026-08-13	removed	TSK	Presentations II (for Civil Engineers)	242.017	SE	W	3.0
+2026-08-13	removed	TSK	Communication techniques	184.004	SE	S	1.5
+2026-08-13	removed	TSK	Data Literacy: Principles of Data and Information Visualisation	040.009	VU	W	3.0
+2026-08-13	removed	TSK	Legal Issues in Environmental Protection	265.045	VO	S	3.0
+2026-08-13	removed	TSK	Organisational Lab	330.136	UE	S	4.0
+2026-08-13	removed	TSK	Contract and liability law	265.076	VU	S	3.0
+2026-08-13	removed	TSK	Innovation Lab - Smart Innovation	330.250	VU	S	4.0
+2026-08-13	removed	TSK	How to Invent a Robot - Product Development from the User Perspective	376.075	VU	S	5.0
+2026-08-13	removed	TSK	How to Invent a Robot - Product Development from the User Perspective	376.075	VU	W	5.0
+2026-08-13	removed	TSK	E-Tutoring, Moderation of E-Learning	015.087	VU	W	3.0
+2026-08-13	removed	TSK	Relativity for the non-specialist	136.009	VO	S	3.0
+2026-08-13	removed	TSK	Barrierfree Buildings	259.345	VU	S	1.0
+2026-08-13	removed	TSK	Barrierfree Buildings	259.346	UE	S	1.0
+2026-08-13	removed	TSK	Sustainability Challenge	253.179	VO	W	4.0
+2026-08-13	removed	TSK	Information Literacy: Publishing and Dissemination	040.004	VU	W	3.0
+2026-08-13	removed	TSK	Further Education and Lifelong Learning	015.118	VU	S	3.0
+2026-08-13	removed	TSK	Mentoring - Mathematics (FaMe)	060.017	SE	S	2.0
+2026-08-13	removed	TSK	Mentoring - Mathematics (FaMe)	060.017	SE	W	2.0
+2026-08-13	removed	TSK	Information Literacy: Literature Research, Citations, and Writing for Bachelor and Master Theses	040.003	SE	W	2.0
+2026-08-13	removed	TSK	Introduction to scientific work – building archaeology	251.865	VU	S	2.0
+2026-08-13	removed	TSK	Introduction to scientific work	251.865	VU	W	2.0
+2026-08-13	removed	TSK	Data Literacy: 3D Visualisation in Virtual Reality	040.007	SE	S	3.0
+2026-08-13	removed	TSK	Recent Research in the field of Ecology	259.646	VO	S	2.0
+2026-08-13	removed	TSK	Introduction into Research Data Management	058.005	VU	W	3.0
+2026-08-13	removed	TSK	Didactic Skills for tutors	060.031	VU	S	1.0
+2026-08-13	removed	TSK	Impact of technological development - Introduction to the theory and practice of technology assessment (TA)	064.050	VO	W	2.0
+2026-08-13	removed	TSK	Technology for People	061.003	VU	S	3.0
+2026-08-13	removed	TSK	Technology for People	061.003	VU	W	3.0
+2026-08-13	removed	TSK	Building for people	207.011	VO	W	2.0
+2026-08-13	removed	TSK	Building for people | International Study Day: The Mausoleum of Theoderic – Construction. Society. Memoria.	251.852	VO	W	2.0
+2026-08-13	removed	TSK	Chemistry and Society	163.171	VO	S	3.0
+2026-08-13	removed	TSK	Diversity Skills (German)	064.029	UE	S	1.0
+2026-08-13	removed	TSK	Diversity Skills (German)	064.029	UE	W	1.0
+2026-08-13	removed	TSK	Feminist technology studies	034.016	VU	S	3.0
+2026-08-13	removed	TSK	Technology and Ethics	034.012	VU	S	3.0
+2026-08-13	removed	TSK	Sustainability & Diversity in Research and Development	034.021	SE	S	2.0
+2026-08-13	removed	TSK	VO Who cares? Social responsibility in science and technology development	034.025	VO	W	3.0
+2026-08-13	removed	TSK	Who cares? Social responsibility in science and technology development	034.026	UE	S	3.0
+2026-08-13	removed	TSK	Masculinities and technologies - approaches, theories and concepts for advanced exploration	034.027	UE	S	3.0
+2026-08-13	removed	TSK	Masculinities and Technologies: Relations, Ambivalences, Implications	034.011	VO	W	3.0
+2026-08-13	removed	TSK	Introduction to diversity management	034.015	VU	S	3.0
+2026-08-13	removed	TSK	femTUconnect – feminist networks	034.028	SE	S	3.0
+2026-08-13	removed	TSK	femTUconnect – feminist networks	034.028	SE	W	3.0
+2026-08-13	removed	TSK	French for engineers I	064.014	VU	W	3.0
+2026-08-13	removed	TSK	French for engineers II	064.035	VU	S	3.0
+2026-08-13	removed	TSK	Spanish for engineers I	064.015	VU	W	3.0
+2026-08-13	removed	TSK	Spanish for engineers II	064.036	VU	S	3.0
+2026-08-13	removed	TSK	Syntax-based Japanese I	057.028	VO	W	6.0
+2026-08-13	removed	TSK	Syntax-based Japanese I	057.030	UE	W	6.0
+2026-08-13	removed	TSK	Technical Chinese III	064.018	VU	W	3.0
+2026-08-13	removed	TSK	Technical Chinese IV	064.038	VU	S	3.0
+2026-08-13	removed	TSK	Technical Italien I	064.024	VU	W	3.0
+2026-08-13	removed	TSK	Technical Italien II	064.039	VU	S	3.0
+2026-08-13	removed	TSK	Swedish for Engineers 1	064.025	VU	S	3.0
+2026-08-13	removed	TSK	Swedish for Engineers 1	064.025	VU	W	3.0
+2026-08-13	removed	TSK	Swedish for Engineers 2	064.040	VU	S	3.0
+2026-08-13	removed	TSK	Swedish for Engineers 2	064.040	VU	W	3.0
+2026-08-13	removed	TSK	Development of technical terms in ÖGS	064.007	VU	S	3.0
+2026-08-13	removed	TSK	Development of technical terms in ÖGS	064.007	VU	W	3.0
+2026-08-13	removed	TSK	Introduction to Austrian Sign Language and Deaf Culture	064.010	VU	S	1.0
+2026-08-13	removed	TSK	Introduction to Austrian Sign Language and Deaf Culture	064.010	VU	W	1.0
+2026-08-13	removed	TSK	Accompanying lecture: Supporting deaf and hard of hearing students	064.008	UE	S	3.0
+2026-08-13	removed	TSK	Accompanying lecture: Supporting deaf and hard of hearing students	064.008	UE	W	3.0
+2026-08-13	removed	TSK	IT Projects for Youth	192.058	UE	W	1.5
+2026-08-13	removed	TSK	Leadership Competency Coaching 1	188.383	SE	W	3.0
+2026-08-13	removed	TSK	Basic Skills dealing with organizations – Essential knowledge of management and organizational psychology	260.142	VU	W	3.0
+2026-08-13	removed	TSK	Softskills for technicians	181.208	VU	S	3.0
+2026-08-13	removed	TSK	Softskills for technicians	181.208	VU	W	3.0
+2026-08-13	removed	TSK	Leadership Competency Coaching 2	188.472	SE	W	3.0
+2026-08-13	removed	TSK	Multidisciplinary Planning	210.001	UE	W	2.0
+2026-08-13	removed	TSK	IT Projects for Youth	192.055	PR	W	3.0
+2026-08-13	removed	TSK	Self-Coaching	064.046	VU	S	2.0
+2026-08-13	removed	TSK	Self-Coaching	064.054	VU	W	2.0
+2026-08-13	removed	TSK	Resource management and resilience	064.049	VU	W	2.0
+2026-08-13	removed	TSK	TU.impact – the female empowerment program of TU Vienna	064.003	SE	S	3.0
+2026-08-13	removed	TSK	TU.impact – the female empowerment program of TU Vienna	064.003	SE	W	3.0
+2026-08-13	removed	TSK	Accompanying seminar for mentors of the TUW mentoring program	064.012	SE	W	3.0
+2026-08-13	removed	TSK	Accompanying seminar for mentors of the TUW mentoring program – short term	064.023	SE	S	1.0
+2026-08-13	removed	TSK	Accompanying seminar for mentors of the TUW mentoring program – short term	064.023	SE	W	1.0
+2026-08-13	removed	TSK	Awareness and meditation I	064.004	VU	W	3.0
+2026-08-13	removed	TSK	Introduction to management and leadership for technicians	064.032	VU	S	3.0
+2026-08-13	removed	TSK	Deep Dives: Management and leadership for technicians	064.051	VU	W	3.0
+2026-08-13	removed	TSK	Communication and rhetoric	181.200	SE	S	3.0
+2026-08-13	removed	TSK	Communication and rhetoric	181.200	SE	W	3.0
+2026-08-13	removed	TSK	How to Illustrate Engineering by Means of Audiovisual Media	064.026	VU	S	2.0
+2026-08-13	removed	TSK	How to Illustrate Engineering by Means of Audiovisual Media	064.026	VU	W	2.0
+2026-08-13	removed	TSK	Communication techniques	184.004	SE	W	1.5
+2026-08-13	removed	TSK	Technology exploitation	015.082	VO	S	1.5
+2026-08-13	removed	TSK	Technology exploitation	015.082	VO	W	1.5
+2026-08-13	removed	TSK	Entrepreneurship for innovative corporations and high-tech start-ups	064.031	VO	S	3.0
+2026-08-13	removed	TSK	Ecology and Sustainable Development	164.225	VO	S	3.0
+2026-08-13	removed	TSK	Private Law	265.003	VO	W	3.0
+2026-08-13	removed	TSK	Industrial property rights for technicians	360.012	VO	S	1.5
+2026-08-13	removed	TSK	Contract and liability law	265.076	VU	W	3.0
+2026-08-13	removed	TSK	Ecological and Social Aspects in Chemistry	166.127	VO	S	3.0
+2026-08-13	removed	TSK	Communicating Science	064.027	VU	S	4.5
+2026-08-13	removed	TSK	Communicating Science	064.027	VU	W	4.5
+2026-08-13	removed	TSK	Foundations of scientific work	064.041	VU	S	3.0
+2026-08-13	removed	TSK	Foundations of scientific work	064.041	VU	W	3.0
+2026-08-13	removed	TSK	talente.programm at TU Wien (Bachelor’s Level)	064.001	VU	W	3.0
+2026-08-13	removed	TSK	talente.programm at TU Wien (Master’s and Doctoral Level)	064.005	VU	W	3.0
+2026-08-13	removed	TSK	Introduction to scientific work – building archaeology	251.865	VU	W	2.0
+2026-08-13	removed	TSK	Data Literacy: 3D Visualisation in Virtual Reality	040.007	SE	W	3.0
+2026-08-13	removed	TSK	Recent Research in the field of Ecology	259.646	VO	W	2.0
+2026-08-13	removed	TSK	Creative and Sustainable Product, Service and Process Engineering	064.043	VU	S	3.0
+2026-08-13	removed	TSK	TU Ambassador: Student Orientation at TU Wien	064.056	SE	S	3.0
+2026-08-13	removed	TSK	TU Ambassador: Student Orientation at TU Wien	064.056	SE	W	3.0
